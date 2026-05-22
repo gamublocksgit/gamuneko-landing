@@ -657,18 +657,18 @@ summary:focus-visible {
 
   .cat-image {
     left: 50%;
-    bottom: 52%;
+    bottom: 58%;
     width: clamp(190px, 54vw, 320px);
   }
 
   .cat-running {
-    bottom: 48%;
+    bottom: 54%;
     width: clamp(250px, 70vw, 420px);
   }
 
   .status-pill {
     left: 50%;
-    bottom: 36%;
+    bottom: 30%;
     max-width: min(86vw, 480px);
     white-space: normal;
     transform: translateX(-50%);
@@ -738,7 +738,7 @@ summary:focus-visible {
   }
 
   .status-pill {
-    bottom: 38%;
+    bottom: 32%;
     width: min(90vw, 420px);
   }
 
