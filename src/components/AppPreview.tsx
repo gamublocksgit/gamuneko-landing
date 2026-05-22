@@ -1,6 +1,6 @@
 import { FormEvent, useEffect, useMemo, useRef, useState } from 'react';
 
-type Mode = 'idle' | 'running' | 'stopped';
+type Mode = 'idle' | 'running' | 'break' | 'stopped';
 type Locale = 'en' | 'ja' | 'pt' | 'es';
 
 type Task = {
@@ -23,9 +23,11 @@ const copy: Record<
     waiting: string;
     sleeping: string;
     angry: string;
+    breakStatus: string;
     start: string;
     stop: string;
     retry: string;
+    skipBreak: string;
     tasks: string;
     fullscreen: string;
     close: string;
@@ -42,9 +44,11 @@ const copy: Record<
     waiting: 'Gamu Neko is waiting...',
     sleeping: 'Gamu Neko is sleeping...',
     angry: 'Gamu Neko woke up...',
+    breakStatus: 'Break time with Gamu Neko...',
     start: 'Start Focus',
     stop: 'Stop',
     retry: 'Try Again',
+    skipBreak: 'Skip Break',
     tasks: 'Tasks',
     fullscreen: 'Open fullscreen preview',
     close: 'Close fullscreen preview',
@@ -60,9 +64,11 @@ const copy: Record<
     waiting: 'Gamu Neko が待っています...',
     sleeping: 'Gamu Neko が眠っています...',
     angry: 'Gamu Neko が起きました...',
+    breakStatus: 'Gamu Neko と休憩中...',
     start: '集中を始める',
     stop: '止める',
     retry: 'もう一度',
+    skipBreak: '休憩をスキップ',
     tasks: 'タスク',
     fullscreen: 'プレビューを全画面で開く',
     close: '全画面プレビューを閉じる',
@@ -78,9 +84,11 @@ const copy: Record<
     waiting: 'Gamu Neko está esperando...',
     sleeping: 'Gamu Neko está dormindo...',
     angry: 'Gamu Neko acordou...',
+    breakStatus: 'Pausa com Gamu Neko...',
     start: 'Iniciar foco',
     stop: 'Parar',
     retry: 'Tentar de novo',
+    skipBreak: 'Pular pausa',
     tasks: 'Tarefas',
     fullscreen: 'Abrir prévia em tela cheia',
     close: 'Fechar prévia em tela cheia',
@@ -96,9 +104,11 @@ const copy: Record<
     waiting: 'Gamu Neko está esperando...',
     sleeping: 'Gamu Neko está durmiendo...',
     angry: 'Gamu Neko despertó...',
+    breakStatus: 'Descanso con Gamu Neko...',
     start: 'Iniciar enfoque',
     stop: 'Detener',
     retry: 'Intentar de nuevo',
+    skipBreak: 'Saltar descanso',
     tasks: 'Tareas',
     fullscreen: 'Abrir vista previa en pantalla completa',
     close: 'Cerrar vista previa en pantalla completa',
@@ -115,14 +125,20 @@ const copy: Record<
 const stanceImage: Record<Mode, string> = {
   idle: './assets/munchkin_cat_idle_0.webp',
   running: './assets/munchkin_cat_sleep_1.webp',
+  break: './assets/munchkin_cat_idle_0.webp',
   stopped: './assets/munchkin_cat_angry_0.webp',
 };
 
 const stanceAlt: Record<Mode, string> = {
   idle: 'Munchkin cat sitting calmly',
   running: 'Munchkin cat sleeping during focus time',
+  break: 'Munchkin cat resting during break',
   stopped: 'Munchkin cat awake after an interruption',
 };
+
+function breakMinutes(focusMinutes: number) {
+  return Math.max(1, Math.round(focusMinutes / 5));
+}
 
 const seedTasks: Task[] = [
   { id: 1, title: 'Review notes', done: false },
@@ -148,13 +164,17 @@ export function AppPreview() {
   const activeCopy = copy[locale];
 
   useEffect(() => {
-    if (mode !== 'running') {
+    if (mode !== 'running' && mode !== 'break') {
       return;
     }
 
     const timer = window.setInterval(() => {
       setSecondsLeft((current) => {
         if (current <= 1) {
+          if (mode === 'running') {
+            setMode('break');
+            return breakMinutes(duration) * 60;
+          }
           setMode('idle');
           return duration * 60;
         }
@@ -198,6 +218,7 @@ export function AppPreview() {
 
   const statusText = useMemo(() => {
     if (mode === 'running') return activeCopy.sleeping;
+    if (mode === 'break') return activeCopy.breakStatus;
     if (mode === 'stopped') return activeCopy.angry;
     return activeCopy.waiting;
   }, [activeCopy, mode]);
@@ -324,6 +345,10 @@ export function AppPreview() {
           {mode === 'running' ? (
             <button className="focus-button stop-button" type="button" onClick={stopFocus}>
               {activeCopy.stop}
+            </button>
+          ) : mode === 'break' ? (
+            <button className="focus-button retry-button" type="button" onClick={reset}>
+              {activeCopy.skipBreak}
             </button>
           ) : mode === 'stopped' ? (
             <button className="focus-button retry-button" type="button" onClick={reset}>
