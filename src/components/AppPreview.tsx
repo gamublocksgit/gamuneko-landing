@@ -1,7 +1,7 @@
 import { FormEvent, useEffect, useMemo, useRef, useState } from 'react';
+import { useLocale, languageNames, type Locale } from '../locale';
 
 type Mode = 'idle' | 'running' | 'breakReady' | 'break' | 'stopped';
-type Locale = 'en' | 'ja' | 'pt' | 'es';
 
 type Task = {
   id: number;
@@ -10,12 +10,6 @@ type Task = {
 };
 
 const durations = [15, 25, 45];
-const languageNames: Record<Locale, string> = {
-  en: 'English',
-  ja: '日本語',
-  pt: 'Português',
-  es: 'Español',
-};
 
 const copy: Record<
   Locale,
@@ -166,7 +160,7 @@ function formatTime(totalSeconds: number) {
 }
 
 export function AppPreview() {
-  const [locale, setLocale] = useState<Locale>('en');
+  const { locale, setLocale } = useLocale();
   const [duration, setDuration] = useState(25);
   const [mode, setMode] = useState<Mode>('idle');
   const [secondsLeft, setSecondsLeft] = useState(25 * 60);
