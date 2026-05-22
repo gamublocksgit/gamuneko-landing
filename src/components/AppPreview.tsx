@@ -1,6 +1,6 @@
 import { FormEvent, useEffect, useMemo, useRef, useState } from 'react';
 
-type Mode = 'idle' | 'running' | 'break' | 'stopped';
+type Mode = 'idle' | 'running' | 'breakReady' | 'break' | 'stopped';
 type Locale = 'en' | 'ja' | 'pt' | 'es';
 
 type Task = {
@@ -23,10 +23,12 @@ const copy: Record<
     waiting: string;
     sleeping: string;
     angry: string;
+    breakReady: string;
     breakStatus: string;
     start: string;
     stop: string;
     retry: string;
+    startBreak: string;
     skipBreak: string;
     tasks: string;
     fullscreen: string;
@@ -44,10 +46,12 @@ const copy: Record<
     waiting: 'Gamu Neko is waiting...',
     sleeping: 'Gamu Neko is sleeping...',
     angry: 'Gamu Neko woke up...',
+    breakReady: 'Focus complete! Take a break?',
     breakStatus: 'Break time with Gamu Neko...',
     start: 'Start Focus',
     stop: 'Stop',
     retry: 'Try Again',
+    startBreak: 'Start Break',
     skipBreak: 'Skip Break',
     tasks: 'Tasks',
     fullscreen: 'Open fullscreen preview',
@@ -64,10 +68,12 @@ const copy: Record<
     waiting: 'Gamu Neko が待っています...',
     sleeping: 'Gamu Neko が眠っています...',
     angry: 'Gamu Neko が起きました...',
+    breakReady: '集中完了！休憩しますか？',
     breakStatus: 'Gamu Neko と休憩中...',
     start: '集中を始める',
     stop: '止める',
     retry: 'もう一度',
+    startBreak: '休憩を始める',
     skipBreak: '休憩をスキップ',
     tasks: 'タスク',
     fullscreen: 'プレビューを全画面で開く',
@@ -84,10 +90,12 @@ const copy: Record<
     waiting: 'Gamu Neko está esperando...',
     sleeping: 'Gamu Neko está dormindo...',
     angry: 'Gamu Neko acordou...',
+    breakReady: 'Foco concluído! Fazer uma pausa?',
     breakStatus: 'Pausa com Gamu Neko...',
     start: 'Iniciar foco',
     stop: 'Parar',
     retry: 'Tentar de novo',
+    startBreak: 'Iniciar pausa',
     skipBreak: 'Pular pausa',
     tasks: 'Tarefas',
     fullscreen: 'Abrir prévia em tela cheia',
@@ -104,10 +112,12 @@ const copy: Record<
     waiting: 'Gamu Neko está esperando...',
     sleeping: 'Gamu Neko está durmiendo...',
     angry: 'Gamu Neko despertó...',
+    breakReady: '¡Enfoque completo! ¿Tomar un descanso?',
     breakStatus: 'Descanso con Gamu Neko...',
     start: 'Iniciar enfoque',
     stop: 'Detener',
     retry: 'Intentar de nuevo',
+    startBreak: 'Iniciar descanso',
     skipBreak: 'Saltar descanso',
     tasks: 'Tareas',
     fullscreen: 'Abrir vista previa en pantalla completa',
@@ -125,6 +135,7 @@ const copy: Record<
 const stanceImage: Record<Mode, string> = {
   idle: './assets/munchkin_cat_idle_0.webp',
   running: './assets/munchkin_cat_sleep_1.webp',
+  breakReady: './assets/munchkin_cat_idle_0.webp',
   break: './assets/munchkin_cat_idle_0.webp',
   stopped: './assets/munchkin_cat_angry_0.webp',
 };
@@ -132,9 +143,12 @@ const stanceImage: Record<Mode, string> = {
 const stanceAlt: Record<Mode, string> = {
   idle: 'Munchkin cat sitting calmly',
   running: 'Munchkin cat sleeping during focus time',
+  breakReady: 'Munchkin cat awake after focus session',
   break: 'Munchkin cat resting during break',
   stopped: 'Munchkin cat awake after an interruption',
 };
+
+const meow = new Audio('./assets/meow.mp3');
 
 function breakMinutes(focusMinutes: number) {
   return Math.max(1, Math.round(focusMinutes / 5));
@@ -171,8 +185,10 @@ export function AppPreview() {
     const timer = window.setInterval(() => {
       setSecondsLeft((current) => {
         if (current <= 1) {
+          meow.currentTime = 0;
+          meow.play().catch(() => {});
           if (mode === 'running') {
-            setMode('break');
+            setMode('breakReady');
             return breakMinutes(duration) * 60;
           }
           setMode('idle');
@@ -218,6 +234,7 @@ export function AppPreview() {
 
   const statusText = useMemo(() => {
     if (mode === 'running') return activeCopy.sleeping;
+    if (mode === 'breakReady') return activeCopy.breakReady;
     if (mode === 'break') return activeCopy.breakStatus;
     if (mode === 'stopped') return activeCopy.angry;
     return activeCopy.waiting;
@@ -233,6 +250,10 @@ export function AppPreview() {
     if (mode === 'running') {
       setMode('stopped');
     }
+  };
+
+  const startBreak = () => {
+    setMode('break');
   };
 
   const reset = () => {
@@ -346,6 +367,15 @@ export function AppPreview() {
             <button className="focus-button stop-button" type="button" onClick={stopFocus}>
               {activeCopy.stop}
             </button>
+          ) : mode === 'breakReady' ? (
+            <>
+              <button className="focus-button" type="button" onClick={startBreak}>
+                {activeCopy.startBreak}
+              </button>
+              <button className="focus-button retry-button" type="button" onClick={reset}>
+                {activeCopy.skipBreak}
+              </button>
+            </>
           ) : mode === 'break' ? (
             <button className="focus-button retry-button" type="button" onClick={reset}>
               {activeCopy.skipBreak}
