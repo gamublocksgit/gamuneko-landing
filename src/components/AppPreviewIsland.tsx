@@ -1,5 +1,10 @@
-import { FormEvent, useEffect, useMemo, useRef, useState } from 'react';
-import { useLocale, languageNames, type Locale } from '../locale';
+import { type FormEvent, useEffect, useMemo, useRef, useState } from 'react';
+
+type Locale = 'en' | 'ja' | 'pt' | 'es';
+
+interface Props {
+  defaultLocale?: Locale;
+}
 
 type Mode = 'idle' | 'running' | 'breakReady' | 'break' | 'stopped';
 
@@ -11,7 +16,14 @@ type Task = {
 
 const durations = [15, 25, 45];
 
-const copy: Record<
+const languageNames: Record<Locale, string> = {
+  en: 'English',
+  ja: '日本語',
+  pt: 'Português',
+  es: 'Español',
+};
+
+const islandCopy: Record<
   Locale,
   {
     waiting: string;
@@ -127,11 +139,11 @@ const copy: Record<
 };
 
 const stanceImage: Record<Mode, string> = {
-  idle: './assets/munchkin_cat_idle_0.webp',
-  running: './assets/munchkin_cat_sleep_1.webp',
-  breakReady: './assets/munchkin_cat_idle_0.webp',
-  break: './assets/munchkin_cat_idle_0.webp',
-  stopped: './assets/munchkin_cat_angry_0.webp',
+  idle: '/assets/munchkin_cat_idle_0.webp',
+  running: '/assets/munchkin_cat_sleep_1.webp',
+  breakReady: '/assets/munchkin_cat_idle_0.webp',
+  break: '/assets/munchkin_cat_idle_0.webp',
+  stopped: '/assets/munchkin_cat_angry_0.webp',
 };
 
 const stanceAlt: Record<Mode, string> = {
@@ -141,8 +153,6 @@ const stanceAlt: Record<Mode, string> = {
   break: 'Munchkin cat resting during break',
   stopped: 'Munchkin cat awake after an interruption',
 };
-
-const meow = new Audio('./assets/meow.mp3');
 
 function breakMinutes(focusMinutes: number) {
   return Math.max(1, Math.round(focusMinutes / 5));
@@ -159,8 +169,8 @@ function formatTime(totalSeconds: number) {
   return `${minutes}:${seconds}`;
 }
 
-export function AppPreview() {
-  const { locale, setLocale } = useLocale();
+export function AppPreviewIsland({ defaultLocale = 'en' }: Props) {
+  const [locale, setLocale] = useState<Locale>(defaultLocale);
   const [duration, setDuration] = useState(25);
   const [mode, setMode] = useState<Mode>('idle');
   const [secondsLeft, setSecondsLeft] = useState(25 * 60);
@@ -168,8 +178,13 @@ export function AppPreview() {
   const [tasksOpen, setTasksOpen] = useState(false);
   const [tasks, setTasks] = useState<Task[]>(seedTasks);
   const [taskDraft, setTaskDraft] = useState('');
+  const meowRef = useRef<HTMLAudioElement | null>(null);
   const previewRef = useRef<HTMLDivElement>(null);
-  const activeCopy = copy[locale];
+  const activeCopy = islandCopy[locale];
+
+  useEffect(() => {
+    meowRef.current = new Audio('/assets/meow.mp3');
+  }, []);
 
   useEffect(() => {
     if (mode !== 'running' && mode !== 'break') {
@@ -179,8 +194,10 @@ export function AppPreview() {
     const timer = window.setInterval(() => {
       setSecondsLeft((current) => {
         if (current <= 1) {
-          meow.currentTime = 0;
-          meow.play().catch(() => {});
+          if (meowRef.current) {
+            meowRef.current.currentTime = 0;
+            meowRef.current.play().catch(() => {});
+          }
           if (mode === 'running') {
             setMode('breakReady');
             return breakMinutes(duration) * 60;
@@ -188,7 +205,6 @@ export function AppPreview() {
           setMode('idle');
           return duration * 60;
         }
-
         return current - 1;
       });
     }, 1000);
@@ -206,22 +222,15 @@ export function AppPreview() {
     const onFullscreenChange = () => {
       setExpanded(document.fullscreenElement === previewRef.current);
     };
-
     document.addEventListener('fullscreenchange', onFullscreenChange);
     return () => document.removeEventListener('fullscreenchange', onFullscreenChange);
   }, []);
 
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape' && tasksOpen) {
-        setTasksOpen(false);
-      }
-
-      if (event.key === 'Escape' && expanded && !document.fullscreenElement) {
-        setExpanded(false);
-      }
+      if (event.key === 'Escape' && tasksOpen) setTasksOpen(false);
+      if (event.key === 'Escape' && expanded && !document.fullscreenElement) setExpanded(false);
     };
-
     document.addEventListener('keydown', onKeyDown);
     return () => document.removeEventListener('keydown', onKeyDown);
   }, [expanded, tasksOpen]);
@@ -241,14 +250,10 @@ export function AppPreview() {
   };
 
   const stopFocus = () => {
-    if (mode === 'running') {
-      setMode('stopped');
-    }
+    if (mode === 'running') setMode('stopped');
   };
 
-  const startBreak = () => {
-    setMode('break');
-  };
+  const startBreak = () => setMode('break');
 
   const reset = () => {
     setMode('idle');
@@ -258,11 +263,7 @@ export function AppPreview() {
   const addTask = (event: FormEvent) => {
     event.preventDefault();
     const title = taskDraft.trim();
-
-    if (!title) {
-      return;
-    }
-
+    if (!title) return;
     setTasks((current) => [...current, { id: Date.now(), title, done: false }]);
     setTaskDraft('');
   };
@@ -279,39 +280,33 @@ export function AppPreview() {
 
   const toggleFullscreen = async () => {
     if (expanded || document.fullscreenElement) {
-      if (document.fullscreenElement) {
-        await document.exitFullscreen();
-      }
+      if (document.fullscreenElement) await document.exitFullscreen();
       setExpanded(false);
       return;
     }
-
     if (previewRef.current?.requestFullscreen) {
       await previewRef.current.requestFullscreen();
       setExpanded(true);
       return;
     }
-
     setExpanded(true);
   };
 
   return (
     <div
-      className={`preview-shell ${expanded ? 'preview-expanded' : ''}`}
+      className={`preview-shell${expanded ? ' preview-expanded' : ''}`}
       id="preview-demo"
       ref={previewRef}
     >
       <div className="app-preview" aria-label="Interactive Gamu Neko app preview">
-        <img className="app-background" src="./assets/app_background.webp" alt="" />
+        <img className="app-background" src="/assets/app_background.webp" alt="" />
 
         <div className="preview-toolbar" aria-label="Preview settings">
           <label>
             <span className="sr-only">Preview language</span>
-            <select value={locale} onChange={(event) => setLocale(event.target.value as Locale)}>
-              {Object.entries(languageNames).map(([value, label]) => (
-                <option key={value} value={value}>
-                  {label}
-                </option>
+            <select value={locale} onChange={(e) => setLocale(e.target.value as Locale)}>
+              {(Object.entries(languageNames) as [Locale, string][]).map(([value, label]) => (
+                <option key={value} value={value}>{label}</option>
               ))}
             </select>
           </label>
@@ -320,12 +315,10 @@ export function AppPreview() {
             <select
               value={duration}
               disabled={mode === 'running'}
-              onChange={(event) => setDuration(Number(event.target.value))}
+              onChange={(e) => setDuration(Number(e.target.value))}
             >
               {durations.map((minutes) => (
-                <option key={minutes} value={minutes}>
-                  {minutes} min
-                </option>
+                <option key={minutes} value={minutes}>{minutes} min</option>
               ))}
             </select>
           </label>
@@ -339,19 +332,19 @@ export function AppPreview() {
           </button>
         </div>
 
-        <div className="timer-pill" aria-live="polite">
+        <div className="timer-pill glass-surface" aria-live="polite">
           {formatTime(secondsLeft)}
         </div>
 
         <img className={`cat-image cat-${mode}`} src={stanceImage[mode]} alt={stanceAlt[mode]} />
 
-        <div className="status-pill">{statusText}</div>
+        <div className="status-pill glass-surface">{statusText}</div>
 
         <div className="app-actions" aria-label="Focus controls">
           <button
             className="task-button"
             type="button"
-            onClick={() => setTasksOpen((current) => !current)}
+            onClick={() => setTasksOpen((c) => !c)}
             aria-expanded={tasksOpen}
             aria-controls="tasks-panel"
           >
@@ -385,7 +378,7 @@ export function AppPreview() {
           )}
         </div>
 
-        {tasksOpen ? (
+        {tasksOpen && (
           <section className="tasks-panel" id="tasks-panel" aria-labelledby="tasks-panel-title">
             <div className="tasks-panel-header">
               <h2 id="tasks-panel-title">{activeCopy.taskPanelTitle}</h2>
@@ -398,13 +391,13 @@ export function AppPreview() {
                 <span className="sr-only">{activeCopy.taskInput}</span>
                 <input
                   value={taskDraft}
-                  onChange={(event) => setTaskDraft(event.target.value)}
+                  onChange={(e) => setTaskDraft(e.target.value)}
                   placeholder={activeCopy.taskPlaceholder}
                 />
               </label>
               <button type="submit">{activeCopy.addTask}</button>
             </form>
-            {tasks.length === 0 ? <p>{activeCopy.emptyTasks}</p> : null}
+            {tasks.length === 0 && <p>{activeCopy.emptyTasks}</p>}
             <ul className="task-list">
               {tasks.map((task) => (
                 <li key={task.id}>
@@ -423,7 +416,7 @@ export function AppPreview() {
               ))}
             </ul>
           </section>
-        ) : null}
+        )}
       </div>
     </div>
   );

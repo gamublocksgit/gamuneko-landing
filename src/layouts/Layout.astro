@@ -1,0 +1,110 @@
+---
+import '../styles/global.css';
+import { copy, hreflangMap, localePaths, type FaqItem, type Locale } from '../i18n/copy';
+
+interface Props {
+  lang: Locale;
+  pathname: string;
+  faqItems?: FaqItem[];
+}
+
+const { lang, pathname, faqItems } = Astro.props;
+const t = copy[lang];
+const base = 'https://gamuneko.gamublocks.com';
+const canonical = `${base}${pathname}`;
+
+const allLocales: Locale[] = ['en', 'ja', 'pt', 'es'];
+
+const appStorUrl = 'https://apps.apple.com/us/app/gamu-neko-pomodoro-timer/id6759168102';
+const playStoreUrl = 'https://play.google.com/store/apps/details?id=com.gamublocks.gamuneko';
+
+const softwareAppSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'Gamu Neko: Pomodoro Timer',
+  alternateName: 'Gamu Neko',
+  applicationCategory: 'ProductivityApplication',
+  applicationSubCategory: 'Focus Timer, Pomodoro Timer, Study Timer',
+  operatingSystem: 'iOS 12.0 or later, Android 8.0 or later',
+  description: t.snackable,
+  image: `${base}/assets/app_icon.webp`,
+  isAccessibleForFree: true,
+  author: {
+    '@type': 'Organization',
+    name: 'Gamu Blocks',
+    address: { '@type': 'PostalAddress', addressLocality: 'Osaka', addressCountry: 'JP' },
+    url: 'https://www.gamublocks.com/',
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Gamu Blocks',
+    url: 'https://www.gamublocks.com/',
+  },
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'USD',
+  },
+  sameAs: [appStorUrl, playStoreUrl, 'https://www.gamublocks.com/'],
+};
+
+const faqSchema = faqItems && faqItems.length > 0
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: faqItems.map((item) => ({
+        '@type': 'Question',
+        name: item.q,
+        acceptedAnswer: { '@type': 'Answer', text: item.a },
+      })),
+    }
+  : null;
+
+const jsonLd = faqSchema ? [softwareAppSchema, faqSchema] : [softwareAppSchema];
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{t.meta.title}</title>
+    <meta name="description" content={t.meta.description} />
+    <meta name="keywords" content="Gamu Neko, Pomodoro timer, focus timer, cat Pomodoro timer, study timer, cozy focus app, cute cat timer, offline focus app, cute productivity app, ADHD focus timer" />
+    <link rel="canonical" href={canonical} />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#fff8ef" />
+    <link rel="icon" type="image/webp" href="/assets/app_icon.webp" />
+
+    <!-- hreflang alternates -->
+    {allLocales.map((locale) => (
+      <link
+        rel="alternate"
+        hreflang={hreflangMap[locale]}
+        href={`${base}${localePaths[locale]}`}
+      />
+    ))}
+    <link rel="alternate" hreflang="x-default" href={`${base}/`} />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={t.meta.title} />
+    <meta property="og:description" content={t.meta.description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={`${base}/assets/app_icon.webp`} />
+    <meta property="og:site_name" content="Gamu Neko" />
+    <meta property="og:locale" content={lang === 'pt' ? 'pt_BR' : lang === 'ja' ? 'ja_JP' : lang === 'es' ? 'es_ES' : 'en_US'} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={t.meta.title} />
+    <meta name="twitter:description" content={t.meta.description} />
+    <meta name="twitter:image" content={`${base}/assets/app_icon.webp`} />
+
+    <!-- JSON-LD structured data -->
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

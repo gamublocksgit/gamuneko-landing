@@ -98,6 +98,14 @@ Deliver the result with:
 4. Any tradeoffs made.
 ```
 
+## v2.0 Glass Surface Exception
+
+The following single exception to rule 1 (Avoid generic AI visual patterns) was approved for v2.0 and above:
+
+> **One frosted hero panel is permitted** on the interactive timer surface (`.glass-surface` class) to visually mirror the in-app glassmorphic timer UI. This applies only to the timer pill and status pill inside the AppPreview/AppPreviewIsland component. No other component, card, section, or element on the landing page may use glassmorphism, blur panels, frosted treatments, or glow borders. This exception is strictly scoped to preserve the connection between the landing page preview and the actual app UI.
+
+All other rules in section 1 remain in full effect. This exception was recorded on 2026-05-23.
+
 ## Extra Instruction for Coding Agents
 
 ```

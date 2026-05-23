@@ -1,0 +1,122 @@
+---
+import { copy, type Locale } from '../i18n/copy';
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+const t = copy[lang].guiltMechanic;
+
+const stepIcons = [
+  '/assets/munchkin_cat_idle_0.webp',
+  '/assets/munchkin_cat_sleep_1.webp',
+  '/assets/munchkin_cat_angry_0.webp',
+];
+
+const stepAlts = [
+  'Munchkin cat sitting calmly',
+  'Munchkin cat sleeping peacefully',
+  'Munchkin cat awake after interruption',
+];
+---
+
+<section class="content-band guilt-band" aria-labelledby="guilt-title">
+  <div class="guilt-header">
+    <p class="section-kicker">{t.kicker}</p>
+    <h2 id="guilt-title">{t.title}</h2>
+  </div>
+  <ol class="guilt-steps" aria-label="How Gamu Neko works">
+    {t.steps.map((step, i) => (
+      <li class="guilt-step">
+        <div class="guilt-step-img">
+          <img
+            src={stepIcons[i]}
+            alt={stepAlts[i]}
+            width="120"
+            height="120"
+            loading="lazy"
+          />
+          {i < t.steps.length - 1 && (
+            <span class="step-arrow" aria-hidden="true">→</span>
+          )}
+        </div>
+        <strong class="guilt-step-label">{step.label}</strong>
+        <p class="guilt-step-desc">{step.desc}</p>
+      </li>
+    ))}
+  </ol>
+</section>
+
+<style>
+  .guilt-band {
+    border-top: 1px solid var(--line);
+  }
+
+  .guilt-header {
+    max-width: 680px;
+    margin-bottom: 2rem;
+  }
+
+  .guilt-steps {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .guilt-step {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .guilt-step-img {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .guilt-step-img img {
+    width: clamp(60px, 10vw, 100px);
+    height: auto;
+    filter: drop-shadow(0 8px 12px rgba(52, 37, 29, 0.16));
+  }
+
+  .step-arrow {
+    font-size: 1.5rem;
+    color: var(--muted);
+    font-family: Fredoka, system-ui, sans-serif;
+  }
+
+  .guilt-step-label {
+    color: var(--text);
+    font-size: 1.05rem;
+    font-weight: 900;
+    font-family: Fredoka, Quicksand, system-ui, sans-serif;
+  }
+
+  .guilt-step-desc {
+    margin: 0;
+    font-size: 0.97rem;
+    line-height: 1.65;
+  }
+
+  @media (max-width: 640px) {
+    .guilt-steps {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .guilt-step-img {
+      flex-direction: row;
+    }
+
+    .step-arrow {
+      display: none;
+    }
+  }
+</style>

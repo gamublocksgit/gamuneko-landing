@@ -1,0 +1,74 @@
+---
+import { copy, localePaths, languageNames, type Locale } from '../i18n/copy';
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+const t = copy[lang];
+---
+
+<header class="site-header">
+  <a class="brand" href={localePaths[lang]} aria-label="Gamu Neko home">
+    <img src="/assets/app_icon.webp" alt="" width="38" height="38" />
+    <span>Gamu Neko</span>
+  </a>
+  <nav aria-label="Main navigation">
+    <div class="lang-switcher" aria-label="Select language">
+      {Object.entries(languageNames).map(([locale, label]) => (
+        <a
+          href={localePaths[locale as Locale]}
+          aria-current={locale === lang ? 'page' : undefined}
+          class={locale === lang ? 'lang-active' : ''}
+        >
+          {label}
+        </a>
+      ))}
+    </div>
+    <a class="nav-button" href="#get-the-app">
+      {t.header.cta}
+    </a>
+  </nav>
+</header>
+
+<style>
+  .lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 0.1rem;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 0.2rem;
+    background: var(--surface);
+  }
+
+  .lang-switcher a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 36px;
+    border-radius: 999px;
+    padding: 0.25rem 0.65rem;
+    font-size: 0.88rem;
+    font-weight: 900;
+    text-decoration: none;
+    color: var(--muted);
+    transition: background 120ms ease, color 120ms ease;
+  }
+
+  .lang-switcher a:hover {
+    color: var(--text);
+    background: rgba(52, 37, 29, 0.06);
+  }
+
+  .lang-switcher .lang-active {
+    background: var(--accent-dark);
+    color: #fffdf8;
+  }
+
+  .lang-switcher .lang-active:hover {
+    background: var(--accent-dark);
+    color: #fffdf8;
+  }
+</style>

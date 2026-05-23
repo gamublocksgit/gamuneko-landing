@@ -4,9 +4,9 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --host 127.0.0.1",
-    "build": "tsc --noEmit && vite build",
-    "preview": "vite preview --host 127.0.0.1",
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
     "qa:smoke": "node tests/landing-smoke.mjs"
   },
   "dependencies": {
@@ -14,12 +14,15 @@
     "react-dom": "^19.2.0"
   },
   "devDependencies": {
+    "@astrojs/react": "^4.2.0",
+    "@astrojs/sitemap": "^3.2.0",
+    "@astrojs/tailwind": "^5.1.2",
     "@playwright/test": "^1.60.0",
     "@types/react": "^19.2.2",
     "@types/react-dom": "^19.2.2",
-    "@vitejs/plugin-react": "^5.0.4",
+    "astro": "^5.7.0",
     "sharp": "^0.34.5",
-    "typescript": "^5.9.3",
-    "vite": "^7.1.12"
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.7.2"
   }
 }

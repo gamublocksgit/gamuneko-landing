@@ -1,0 +1,25 @@
+---
+import { copy, type Locale } from '../i18n/copy';
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+const t = copy[lang].faq;
+---
+
+<section class="content-band faq-band" id="faq" aria-labelledby="faq-title">
+  <div class="section-heading">
+    <p class="section-kicker">{t.kicker}</p>
+    <h2 id="faq-title">{t.title}</h2>
+  </div>
+  <div class="faq-list">
+    {t.items.map((item) => (
+      <details>
+        <summary>{item.q}</summary>
+        <p>{item.a}</p>
+      </details>
+    ))}
+  </div>
+</section>
