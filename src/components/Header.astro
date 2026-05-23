@@ -15,60 +15,39 @@ const t = copy[lang];
     <span>Gamu Neko</span>
   </a>
   <nav aria-label="Main navigation">
-    <div class="lang-switcher" aria-label="Select language">
-      {Object.entries(languageNames).map(([locale, label]) => (
-        <a
-          href={localePaths[locale as Locale]}
-          aria-current={locale === lang ? 'page' : undefined}
-          class={locale === lang ? 'lang-active' : ''}
-        >
-          {label}
-        </a>
-      ))}
-    </div>
+    <label class="lang-switcher">
+      <span class="sr-only">Language</span>
+      <select id="lang-select" aria-label="Select language">
+        {Object.entries(languageNames).map(([locale, label]) => (
+          <option value={localePaths[locale as Locale]} selected={locale === lang}>
+            {label}
+          </option>
+        ))}
+      </select>
+    </label>
     <a class="nav-button" href="#get-the-app">
       {t.header.cta}
     </a>
   </nav>
 </header>
 
+<script>
+  const select = document.getElementById('lang-select') as HTMLSelectElement;
+  select?.addEventListener('change', () => {
+    window.location.href = select.value;
+  });
+</script>
+
 <style>
-  .lang-switcher {
-    display: flex;
-    align-items: center;
-    gap: 0.1rem;
+  .lang-switcher select {
     border: 1px solid var(--line);
     border-radius: 999px;
-    padding: 0.2rem;
+    padding: 0.45rem 0.7rem;
     background: var(--surface);
-  }
-
-  .lang-switcher a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 36px;
-    border-radius: 999px;
-    padding: 0.25rem 0.65rem;
-    font-size: 0.88rem;
-    font-weight: 900;
-    text-decoration: none;
-    color: var(--muted);
-    transition: background 120ms ease, color 120ms ease;
-  }
-
-  .lang-switcher a:hover {
     color: var(--text);
-    background: rgba(52, 37, 29, 0.06);
-  }
-
-  .lang-switcher .lang-active {
-    background: var(--accent-dark);
-    color: #fffdf8;
-  }
-
-  .lang-switcher .lang-active:hover {
-    background: var(--accent-dark);
-    color: #fffdf8;
+    font-weight: 900;
+    font-size: 0.9rem;
+    cursor: pointer;
+    min-height: 44px;
   }
 </style>
