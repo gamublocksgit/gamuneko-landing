@@ -1,0 +1,116 @@
+---
+import { copy, type Locale } from '../i18n/copy';
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+const t = copy[lang].comparison;
+---
+
+<section class="content-band comparison-band" aria-labelledby="comparison-title">
+  <div class="section-heading">
+    <p class="section-kicker">{t.kicker}</p>
+    <h2 id="comparison-title">{t.title}</h2>
+  </div>
+  <div class="table-wrap">
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          {t.headers.map((header, i) => (
+            <th scope="col" class={i === 1 ? 'col-highlight' : ''}>{header}</th>
+          ))}
+        </tr>
+      </thead>
+      <tbody>
+        {t.rows.map(([feature, gneko, adSupported, subscription]) => (
+          <tr>
+            <th scope="row">{feature}</th>
+            <td class="col-highlight">
+              <span class="check-mark" aria-hidden="true">✓</span> {gneko}
+            </td>
+            <td>{adSupported}</td>
+            <td>{subscription}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<style>
+  .comparison-band {
+    border-top: 1px solid var(--line);
+  }
+
+  .table-wrap {
+    overflow-x: auto;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--line);
+  }
+
+  .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.97rem;
+    background: rgba(255, 253, 248, 0.78);
+  }
+
+  .comparison-table th,
+  .comparison-table td {
+    padding: 0.9rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+
+  .comparison-table tr:last-child th,
+  .comparison-table tr:last-child td {
+    border-bottom: 0;
+  }
+
+  .comparison-table thead th {
+    background: rgba(255, 248, 239, 0.9);
+    font-weight: 900;
+    font-size: 0.88rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+
+  .comparison-table thead .col-highlight {
+    color: var(--accent-dark);
+  }
+
+  .comparison-table tbody th {
+    font-weight: 900;
+    color: var(--text);
+    white-space: nowrap;
+  }
+
+  .comparison-table td {
+    color: var(--muted);
+    line-height: 1.55;
+  }
+
+  .col-highlight {
+    background: rgba(255, 248, 239, 0.5);
+    color: var(--text) !important;
+    font-weight: 700;
+  }
+
+  .check-mark {
+    color: var(--accent-dark);
+    font-weight: 900;
+  }
+
+  @media (max-width: 640px) {
+    .comparison-table th,
+    .comparison-table td {
+      padding: 0.7rem 0.75rem;
+      font-size: 0.92rem;
+    }
+  }
+</style>

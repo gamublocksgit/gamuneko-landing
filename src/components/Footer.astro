@@ -1,0 +1,17 @@
+---
+import { copy, type Locale } from '../i18n/copy';
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+const t = copy[lang];
+---
+
+<footer class="site-footer">
+  <a href="https://www.gamublocks.com/" rel="noreferrer noopener" target="_blank">
+    <img src="/assets/GamuBlocks.png" alt="Gamu Blocks" width="120" height="34" loading="lazy" />
+  </a>
+  <p>{t.footer}</p>
+</footer>

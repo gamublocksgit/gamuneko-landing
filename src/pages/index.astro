@@ -1,0 +1,101 @@
+---
+import { AppPreviewIsland } from '../components/AppPreviewIsland';
+import ComparisonTable from '../components/ComparisonTable.astro';
+import Faq from '../components/Faq.astro';
+import FeatureGrid from '../components/FeatureGrid.astro';
+import Footer from '../components/Footer.astro';
+import GuiltMechanic from '../components/GuiltMechanic.astro';
+import Header from '../components/Header.astro';
+import StoreButtons from '../components/StoreButtons.astro';
+import Layout from '../layouts/Layout.astro';
+import { copy } from '../i18n/copy';
+
+const lang = 'en';
+const t = copy[lang];
+---
+
+<Layout lang={lang} pathname="/" faqItems={t.faq.items}>
+  <Header lang={lang} />
+  <main>
+    <!-- GEO snackable summary — visible to LLMs and crawlers -->
+    <p class="sr-only">{t.snackable}</p>
+
+    <section class="app-first" id="preview" aria-labelledby="page-title">
+      <h1 class="sr-only" id="page-title">{t.hero.h1}</h1>
+      <AppPreviewIsland client:load defaultLocale={lang} />
+    </section>
+
+    <section class="content-band hero-tagline" aria-label="App introduction">
+      <p class="section-kicker">{t.hero.kicker}</p>
+      <p class="hero-sub">{t.hero.sub}</p>
+      <StoreButtons />
+    </section>
+
+    <GuiltMechanic lang={lang} />
+
+    <section class="content-band intro-band" aria-labelledby="gentle-title">
+      <div class="narrow-copy">
+        <p class="section-kicker">{t.intro.kicker}</p>
+        <h2 id="gentle-title">{t.intro.title}</h2>
+        <p>{t.intro.body}</p>
+      </div>
+    </section>
+
+    <FeatureGrid lang={lang} />
+
+    <section class="content-band split-band" aria-labelledby="quiet-title">
+      <div>
+        <p class="section-kicker">{t.useCases.kicker}</p>
+        <h2 id="quiet-title">{t.useCases.title}</h2>
+      </div>
+      <ul class="use-case-list" aria-label="Gamu Neko use cases">
+        {t.useCases.items.map((item) => <li>{item}</li>)}
+      </ul>
+    </section>
+
+    <section class="content-band privacy-band" id="privacy" aria-labelledby="privacy-title">
+      <p class="section-kicker">{t.privacy.kicker}</p>
+      <h2 id="privacy-title">{t.privacy.title}</h2>
+      <p>{t.privacy.body}</p>
+    </section>
+
+    <ComparisonTable lang={lang} />
+
+    <section class="content-band preview-note" aria-labelledby="preview-note-title">
+      <p class="section-kicker">{t.previewNote.kicker}</p>
+      <h2 id="preview-note-title">{t.previewNote.title}</h2>
+      <p>{t.previewNote.body}</p>
+    </section>
+
+    <Faq lang={lang} />
+
+    <section class="store-section" id="get-the-app" aria-labelledby="store-title">
+      <div>
+        <p class="section-kicker">{t.store.kicker}</p>
+        <h2 id="store-title">{t.store.title}</h2>
+        <p>{t.store.body}</p>
+      </div>
+      <StoreButtons />
+    </section>
+  </main>
+  <Footer lang={lang} />
+</Layout>
+
+<style>
+  .hero-tagline {
+    border-top: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    align-items: flex-start;
+  }
+
+  .hero-sub {
+    margin: 0;
+    font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+    color: var(--text);
+    font-weight: 700;
+    max-width: 680px;
+    line-height: 1.5;
+  }
+</style>
