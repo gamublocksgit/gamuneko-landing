@@ -46,6 +46,7 @@ const islandCopy: Record<
     closeTasks: string;
     emptyTasks: string;
     removeTask: string;
+    customDuration: string;
   }
 > = {
   en: {
@@ -69,6 +70,7 @@ const islandCopy: Record<
     closeTasks: 'Close tasks',
     emptyTasks: 'Add a small task before you start.',
     removeTask: 'Remove task',
+    customDuration: 'Custom',
   },
   ja: {
     waiting: 'Gamu Neko が待っています...',
@@ -91,6 +93,7 @@ const islandCopy: Record<
     closeTasks: 'タスクを閉じる',
     emptyTasks: '始める前に小さなタスクを追加しましょう。',
     removeTask: 'タスクを削除',
+    customDuration: 'カスタム',
   },
   pt: {
     waiting: 'Gamu Neko está esperando...',
@@ -113,6 +116,7 @@ const islandCopy: Record<
     closeTasks: 'Fechar tarefas',
     emptyTasks: 'Adicione uma pequena tarefa antes de começar.',
     removeTask: 'Remover tarefa',
+    customDuration: 'Personalizado',
   },
   es: {
     waiting: 'Gamu Neko está esperando...',
@@ -135,6 +139,7 @@ const islandCopy: Record<
     closeTasks: 'Cerrar tareas',
     emptyTasks: 'Agrega una tarea pequeña antes de empezar.',
     removeTask: 'Eliminar tarea',
+    customDuration: 'Personalizado',
   },
 };
 
@@ -171,7 +176,12 @@ function formatTime(totalSeconds: number) {
 
 export function AppPreviewIsland({ defaultLocale = 'en' }: Props) {
   const [locale, setLocale] = useState<Locale>(defaultLocale);
-  const [duration, setDuration] = useState(25);
+  const [durationChoice, setDurationChoice] = useState<number | 'custom'>(25);
+  const [customInput, setCustomInput] = useState('30');
+  const duration =
+    durationChoice === 'custom'
+      ? Math.max(1, Math.min(180, parseInt(customInput, 10) || 30))
+      : durationChoice;
   const [mode, setMode] = useState<Mode>('idle');
   const [secondsLeft, setSecondsLeft] = useState(25 * 60);
   const [expanded, setExpanded] = useState(false);
@@ -313,15 +323,33 @@ export function AppPreviewIsland({ defaultLocale = 'en' }: Props) {
           <label>
             <span className="sr-only">Focus length</span>
             <select
-              value={duration}
+              value={durationChoice}
               disabled={mode === 'running'}
-              onChange={(e) => setDuration(Number(e.target.value))}
+              onChange={(e) => {
+                const val = e.target.value;
+                setDurationChoice(val === 'custom' ? 'custom' : Number(val));
+              }}
             >
               {durations.map((minutes) => (
                 <option key={minutes} value={minutes}>{minutes} min</option>
               ))}
+              <option value="custom">{activeCopy.customDuration}</option>
             </select>
           </label>
+          {durationChoice === 'custom' && (
+            <label>
+              <span className="sr-only">Custom duration in minutes</span>
+              <input
+                className="custom-duration-input"
+                type="number"
+                min={1}
+                max={180}
+                value={customInput}
+                disabled={mode === 'running'}
+                onChange={(e) => setCustomInput(e.target.value)}
+              />
+            </label>
+          )}
           <button
             className="fullscreen-button"
             type="button"
