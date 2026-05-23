@@ -15,6 +15,7 @@ type Task = {
 };
 
 const durations = [15, 25, 45];
+const breakDurations = [5, 10, 15];
 
 const languageNames: Record<Locale, string> = {
   en: 'English',
@@ -47,6 +48,7 @@ const islandCopy: Record<
     emptyTasks: string;
     removeTask: string;
     customDuration: string;
+    breakLength: string;
   }
 > = {
   en: {
@@ -71,6 +73,7 @@ const islandCopy: Record<
     emptyTasks: 'Add a small task before you start.',
     removeTask: 'Remove task',
     customDuration: 'Custom',
+    breakLength: 'Break length',
   },
   ja: {
     waiting: 'Gamu Neko が待っています...',
@@ -94,6 +97,7 @@ const islandCopy: Record<
     emptyTasks: '始める前に小さなタスクを追加しましょう。',
     removeTask: 'タスクを削除',
     customDuration: 'カスタム',
+    breakLength: '休憩時間',
   },
   pt: {
     waiting: 'Gamu Neko está esperando...',
@@ -117,6 +121,7 @@ const islandCopy: Record<
     emptyTasks: 'Adicione uma pequena tarefa antes de começar.',
     removeTask: 'Remover tarefa',
     customDuration: 'Personalizado',
+    breakLength: 'Duração da pausa',
   },
   es: {
     waiting: 'Gamu Neko está esperando...',
@@ -140,6 +145,7 @@ const islandCopy: Record<
     emptyTasks: 'Agrega una tarea pequeña antes de empezar.',
     removeTask: 'Eliminar tarea',
     customDuration: 'Personalizado',
+    breakLength: 'Duración del descanso',
   },
 };
 
@@ -158,10 +164,6 @@ const stanceAlt: Record<Mode, string> = {
   break: 'Munchkin cat resting during break',
   stopped: 'Munchkin cat awake after an interruption',
 };
-
-function breakMinutes(focusMinutes: number) {
-  return Math.max(1, Math.round(focusMinutes / 5));
-}
 
 const seedTasks: Task[] = [
   { id: 1, title: 'Review notes', done: false },
@@ -182,6 +184,12 @@ export function AppPreviewIsland({ defaultLocale = 'en' }: Props) {
     durationChoice === 'custom'
       ? Math.max(1, Math.min(180, parseInt(customInput, 10) || 30))
       : durationChoice;
+  const [breakDurationChoice, setBreakDurationChoice] = useState<number | 'custom'>(5);
+  const [customBreakInput, setCustomBreakInput] = useState('5');
+  const breakDuration =
+    breakDurationChoice === 'custom'
+      ? Math.max(1, Math.min(60, parseInt(customBreakInput, 10) || 5))
+      : breakDurationChoice;
   const [mode, setMode] = useState<Mode>('idle');
   const [secondsLeft, setSecondsLeft] = useState(25 * 60);
   const [expanded, setExpanded] = useState(false);
@@ -210,7 +218,7 @@ export function AppPreviewIsland({ defaultLocale = 'en' }: Props) {
           }
           if (mode === 'running') {
             setMode('breakReady');
-            return breakMinutes(duration) * 60;
+            return breakDuration * 60;
           }
           setMode('idle');
           return duration * 60;
@@ -220,7 +228,7 @@ export function AppPreviewIsland({ defaultLocale = 'en' }: Props) {
     }, 1000);
 
     return () => window.clearInterval(timer);
-  }, [duration, mode]);
+  }, [duration, breakDuration, mode]);
 
   useEffect(() => {
     if (mode === 'idle') {
@@ -347,6 +355,36 @@ export function AppPreviewIsland({ defaultLocale = 'en' }: Props) {
                 value={customInput}
                 disabled={mode === 'running'}
                 onChange={(e) => setCustomInput(e.target.value)}
+              />
+            </label>
+          )}
+          <label>
+            <span className="sr-only">{activeCopy.breakLength}</span>
+            <select
+              value={breakDurationChoice}
+              disabled={mode === 'running' || mode === 'break'}
+              onChange={(e) => {
+                const val = e.target.value;
+                setBreakDurationChoice(val === 'custom' ? 'custom' : Number(val));
+              }}
+            >
+              {breakDurations.map((minutes) => (
+                <option key={minutes} value={minutes}>{minutes} min</option>
+              ))}
+              <option value="custom">{activeCopy.customDuration}</option>
+            </select>
+          </label>
+          {breakDurationChoice === 'custom' && (
+            <label>
+              <span className="sr-only">Custom break duration in minutes</span>
+              <input
+                className="custom-duration-input"
+                type="number"
+                min={1}
+                max={60}
+                value={customBreakInput}
+                disabled={mode === 'running' || mode === 'break'}
+                onChange={(e) => setCustomBreakInput(e.target.value)}
               />
             </label>
           )}
