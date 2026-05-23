@@ -366,44 +366,46 @@ export function AppPreviewIsland({ defaultLocale = 'en' }: Props) {
 
         <img className={`cat-image cat-${mode}`} src={stanceImage[mode]} alt={stanceAlt[mode]} />
 
-        <div className="status-pill glass-surface">{statusText}</div>
+        <div className="preview-bottom-hud">
+          <div className="status-pill glass-surface">{statusText}</div>
 
-        <div className="app-actions" aria-label="Focus controls">
-          <button
-            className="task-button"
-            type="button"
-            onClick={() => setTasksOpen((c) => !c)}
-            aria-expanded={tasksOpen}
-            aria-controls="tasks-panel"
-          >
-            {activeCopy.tasks}
-          </button>
-          {mode === 'running' ? (
-            <button className="focus-button stop-button" type="button" onClick={stopFocus}>
-              {activeCopy.stop}
+          <div className="app-actions" aria-label="Focus controls">
+            <button
+              className="task-button"
+              type="button"
+              onClick={() => setTasksOpen((c) => !c)}
+              aria-expanded={tasksOpen}
+              aria-controls="tasks-panel"
+            >
+              {activeCopy.tasks}
             </button>
-          ) : mode === 'breakReady' ? (
-            <>
-              <button className="focus-button" type="button" onClick={startBreak}>
-                {activeCopy.startBreak}
+            {mode === 'running' ? (
+              <button className="focus-button stop-button" type="button" onClick={stopFocus}>
+                {activeCopy.stop}
               </button>
+            ) : mode === 'breakReady' ? (
+              <>
+                <button className="focus-button" type="button" onClick={startBreak}>
+                  {activeCopy.startBreak}
+                </button>
+                <button className="focus-button retry-button" type="button" onClick={reset}>
+                  {activeCopy.skipBreak}
+                </button>
+              </>
+            ) : mode === 'break' ? (
               <button className="focus-button retry-button" type="button" onClick={reset}>
                 {activeCopy.skipBreak}
               </button>
-            </>
-          ) : mode === 'break' ? (
-            <button className="focus-button retry-button" type="button" onClick={reset}>
-              {activeCopy.skipBreak}
-            </button>
-          ) : mode === 'stopped' ? (
-            <button className="focus-button retry-button" type="button" onClick={reset}>
-              {activeCopy.retry}
-            </button>
-          ) : (
-            <button className="focus-button" type="button" onClick={startFocus}>
-              {activeCopy.start}
-            </button>
-          )}
+            ) : mode === 'stopped' ? (
+              <button className="focus-button retry-button" type="button" onClick={reset}>
+                {activeCopy.retry}
+              </button>
+            ) : (
+              <button className="focus-button" type="button" onClick={startFocus}>
+                {activeCopy.start}
+              </button>
+            )}
+          </div>
         </div>
 
         {tasksOpen && (

@@ -284,8 +284,7 @@
     backdrop-filter: blur(3px);
   }
 
-  .timer-pill,
-  .status-pill {
+  .timer-pill {
     position: absolute;
     z-index: 2;
     font-family: Fredoka, Quicksand, system-ui, sans-serif;
@@ -304,13 +303,28 @@
     font-size: clamp(3.5rem, 7vw, 6.2rem);
   }
 
-  .status-pill {
+  .preview-bottom-hud {
+    position: absolute;
+    right: clamp(1rem, 4vw, 4.4rem);
+    bottom: clamp(2.1rem, 7vh, 4.2rem);
     left: clamp(1rem, 20vw, 26rem);
-    bottom: clamp(2.8rem, 7vh, 4.5rem);
-    max-width: min(36rem, 48vw);
+    z-index: 3;
+    display: grid;
+    grid-template-columns: minmax(18rem, 1fr) auto;
+    gap: clamp(0.8rem, 2vw, 1.6rem);
+    align-items: end;
+  }
+
+  .status-pill {
+    min-width: 0;
+    max-width: 36rem;
     border-radius: 28px;
     padding: clamp(0.7rem, 1.4vw, 1rem) clamp(1rem, 2.2vw, 1.6rem);
+    color: #654235;
+    font-family: Fredoka, Quicksand, system-ui, sans-serif;
     font-size: clamp(1.15rem, 1.9vw, 2rem);
+    font-weight: 900;
+    line-height: 1;
     white-space: nowrap;
   }
 
@@ -334,13 +348,11 @@
   }
 
   .app-actions {
-    position: absolute;
-    right: clamp(1rem, 4vw, 4.4rem);
-    bottom: clamp(2.1rem, 9vh, 4.6rem);
-    z-index: 3;
     display: flex;
     gap: clamp(0.8rem, 2vw, 1.6rem);
     align-items: center;
+    justify-content: flex-end;
+    min-width: 0;
   }
 
   .task-button,
@@ -689,6 +701,24 @@
   }
 }
 
+@media (max-width: 1180px) {
+  .preview-bottom-hud {
+    left: clamp(1rem, 5vw, 5rem);
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  .status-pill {
+    max-width: min(36rem, 86vw);
+    white-space: normal;
+    text-align: center;
+  }
+
+  .app-actions {
+    width: min(92vw, 720px);
+  }
+}
+
 @media (max-width: 960px) {
   .app-preview {
     min-height: calc(100svh - 72px - 1rem);
@@ -697,7 +727,7 @@
   .timer-pill {
     top: auto;
     right: 50%;
-    bottom: 17%;
+    bottom: 30%;
     min-width: min(74vw, 360px);
     width: auto;
     transform: translateX(50%);
@@ -717,20 +747,20 @@
   }
 
   .status-pill {
-    left: 50%;
-    bottom: 30%;
     max-width: min(86vw, 480px);
-    white-space: normal;
-    transform: translateX(-50%);
     font-size: clamp(1.25rem, 5vw, 2rem);
-    text-align: center;
+  }
+
+  .preview-bottom-hud {
+    right: 50%;
+    bottom: 5%;
+    left: auto;
+    width: min(92vw, 520px);
+    transform: translateX(50%);
   }
 
   .app-actions {
-    right: 50%;
-    bottom: 5%;
     width: min(92vw, 520px);
-    transform: translateX(50%);
   }
 
   .task-button,
@@ -785,16 +815,19 @@
   }
 
   .timer-pill {
-    bottom: 16%;
+    bottom: 30%;
   }
 
   .status-pill {
-    bottom: 32%;
     width: min(90vw, 420px);
   }
 
+  .preview-bottom-hud {
+    bottom: calc(5.4% + env(safe-area-inset-bottom));
+    gap: 0.75rem;
+  }
+
   .app-actions {
-    bottom: 5.4%;
     gap: 0.65rem;
   }
 
