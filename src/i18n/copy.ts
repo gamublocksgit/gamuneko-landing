@@ -147,7 +147,7 @@ export const copy: Record<Locale, LocaleCopy> = {
       title: 'Questions about Gamu Neko',
       items: [
         { q: 'What is Gamu Neko?', a: 'Gamu Neko is a cozy focus companion that combines a Pomodoro timer with a sleeping cat mechanic. Your cat rests while you focus and wakes up if you leave.' },
-        { q: 'What is the Pomodoro Technique?', a: 'The Pomodoro Technique is a time-management method where you work in focused intervals — typically 25 minutes — followed by a short break. Gamu Neko supports 15, 25, and 45-minute sessions.' },
+        { q: 'What is the Pomodoro Technique?', a: 'The Pomodoro Technique is a time-management method where you work in focused intervals — typically 25 minutes — followed by a short break.' },
         { q: 'Is Gamu Neko free?', a: 'Yes. The core experience is completely free. Optional one-time purchase unlock additional backgrounds.' },
         { q: 'Does Gamu Neko work offline?', a: 'Yes. The mobile app is designed around an offline-first, local-first focus routine. No internet connection is required for any core feature.' },
         { q: 'Is my data backed up to the cloud?', a: 'No cloud sync is required. All your focus data, task history, and session records stay on your device by default. No account is needed.' },
