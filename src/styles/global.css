@@ -309,14 +309,15 @@
     bottom: clamp(2.1rem, 7vh, 4.2rem);
     left: clamp(1rem, 20vw, 26rem);
     z-index: 3;
-    display: grid;
-    grid-template-columns: minmax(18rem, 1fr) auto;
+    display: flex;
+    justify-content: space-between;
     gap: clamp(0.8rem, 2vw, 1.6rem);
     align-items: end;
   }
 
   .status-pill {
     min-width: 0;
+    width: max-content;
     max-width: 36rem;
     border-radius: 28px;
     padding: clamp(0.7rem, 1.4vw, 1rem) clamp(1rem, 2.2vw, 1.6rem);
@@ -704,8 +705,9 @@
 @media (max-width: 1180px) {
   .preview-bottom-hud {
     left: clamp(1rem, 5vw, 5rem);
-    grid-template-columns: 1fr;
-    justify-items: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
   }
 
   .status-pill {
