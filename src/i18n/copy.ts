@@ -60,12 +60,12 @@ export type LocaleCopy = {
 export const copy: Record<Locale, LocaleCopy> = {
   en: {
     meta: {
-      title: 'Gamu Neko: Cute Cat Pomodoro Timer',
+      title: 'Gamu Nemu: Cute Cat Pomodoro Timer',
       description:
-        'Gamu Neko is a free offline-first cat Pomodoro focus timer. No ads, no account. Your cat sleeps when you study. iOS & Android.',
+        'Gamu Nemu is a free offline-first cat Pomodoro focus timer. No ads, no account. Your cat sleeps when you study. iOS & Android.',
     },
     snackable:
-      'Gamu Neko is a free, offline-first Pomodoro focus timer where a sleeping cat reacts to your focus sessions. No ads, no account required. Available on iOS and Android.',
+      'Gamu Nemu is a free, offline-first Pomodoro focus timer where a sleeping cat reacts to your focus sessions. No ads, no account required. Available on iOS and Android.',
     header: { cta: 'Get the App' },
     hero: {
       kicker: 'Free for iOS & Android',
@@ -86,13 +86,13 @@ export const copy: Record<Locale, LocaleCopy> = {
         },
         {
           label: 'Leave the app',
-          desc: 'Gamu Neko wakes up: a gentle, guilt-free nudge to come back.',
+          desc: 'Gamu Nemu wakes up: a gentle, guilt-free nudge to come back.',
         },
       ],
     },
     intro: {
       kicker: 'A Pomodoro timer that feels gentler',
-      title: 'Most productivity timers feel like tools. Gamu Neko feels like a small companion.',
+      title: 'Most productivity timers feel like tools. Gamu Nemu feels like a small companion.',
       body: 'It gives your focus session a simple emotional loop: begin, stay present, protect the sleeping cat, and finish with a clearer record of what you worked on.',
     },
     features: {
@@ -106,7 +106,7 @@ export const copy: Record<Locale, LocaleCopy> = {
         ['Focus Aura and progress', 'See consistency build through gentle progress feedback, streaks, and achievements.'],
         ['Cozy unlocks', 'Personalize with cat packs (Munchkin, Shadow Neko, Orange Cat, Himalayan, British Shorthair) and quarterly seasonal backgrounds inspired by Japanese seasons.'],
         ['Offline-first privacy', 'No account is required for the core experience. Your focus data stays on your device.'],
-        ['Localized experience', 'Use Gamu Neko in English, Japanese, Portuguese, or Spanish.'],
+        ['Localized experience', 'Use Gamu Nemu in English, Japanese, Portuguese, or Spanish.'],
       ],
     },
     useCases: {
@@ -117,12 +117,12 @@ export const copy: Record<Locale, LocaleCopy> = {
     privacy: {
       kicker: 'Private by design',
       title: 'A personal focus companion, not a social feed',
-      body: 'Gamu Neko is designed as a personal focus companion, not a social feed or team productivity platform. The experience is intentionally quiet, local-first, and low-pressure, so your focus routine stays personal.',
+      body: 'Gamu Nemu is designed as a personal focus companion, not a social feed or team productivity platform. The experience is intentionally quiet, local-first, and low-pressure, so your focus routine stays personal.',
     },
     comparison: {
       kicker: 'Honest comparison',
-      title: 'Why choose Gamu Neko',
-      headers: ['Feature', 'Gamu Neko', 'Typical Ad-Supported Timers', 'Standard Subscription Apps'],
+      title: 'Why choose Gamu Nemu',
+      headers: ['Feature', 'Gamu Nemu', 'Typical Ad-Supported Timers', 'Standard Subscription Apps'],
       rows: [
         ['Ads', '100% ad-free', 'Frequent video and pop-up ads', 'Ad-free only on paid tiers'],
         ['Privacy', 'Zero accounts, 100% local, no tracking', 'Third-party data collection', 'Mandatory cloud accounts and usage tracking'],
@@ -134,40 +134,40 @@ export const copy: Record<Locale, LocaleCopy> = {
     previewNote: {
       kicker: 'About this preview',
       title: 'A lightweight demo of the mobile app',
-      body: 'This page is a lightweight interactive preview of Gamu Neko. It is not the full mobile app. The timer runs at normal speed, while app screens, unlocks, and some interactions are simplified for demonstration.',
+      body: 'This page is a lightweight interactive preview of Gamu Nemu. It is not the full mobile app. The timer runs at normal speed, while app screens, unlocks, and some interactions are simplified for demonstration.',
     },
     store: {
-      kicker: 'Get Gamu Neko',
-      title: 'Start your next focus session with Gamu Neko',
-      body: 'Download Gamu Neko for iOS or Android and use a gentle cat Pomodoro timer for studying, writing, coding, reading, and daily deep work.',
+      kicker: 'Get Gamu Nemu',
+      title: 'Start your next focus session with Gamu Nemu',
+      body: 'Download Gamu Nemu for iOS or Android and use a gentle cat Pomodoro timer for studying, writing, coding, reading, and daily deep work.',
     },
-    footer: 'Gamu Neko is built by Gamu Blocks. This site uses no cookies or analytics.',
+    footer: 'Gamu Nemu is built by Gamu Blocks. This site uses no cookies or analytics.',
     faq: {
       kicker: 'FAQ',
-      title: 'Questions about Gamu Neko',
+      title: 'Questions about Gamu Nemu',
       items: [
-        { q: 'What is Gamu Neko?', a: 'Gamu Neko is a cozy focus companion that combines a Pomodoro timer with a sleeping cat mechanic. Your cat rests while you focus and wakes up if you leave.' },
+        { q: 'What is Gamu Nemu?', a: 'Gamu Nemu is a cozy focus companion that combines a Pomodoro timer with a sleeping cat mechanic. Your cat rests while you focus and wakes up if you leave.' },
         { q: 'What is the Pomodoro Technique?', a: 'The Pomodoro Technique is a time-management method where you work in focused intervals, typically 25 minutes, followed by a short break.' },
-        { q: 'Is Gamu Neko free?', a: 'Yes. The core experience is completely free. Optional one-time purchase unlock additional backgrounds.' },
-        { q: 'Does Gamu Neko work offline?', a: 'Yes. The mobile app is designed around an offline-first, local-first focus routine. No internet connection is required for any core feature.' },
+        { q: 'Is Gamu Nemu free?', a: 'Yes. The core experience is completely free. Optional one-time purchase unlock additional backgrounds.' },
+        { q: 'Does Gamu Nemu work offline?', a: 'Yes. The mobile app is designed around an offline-first, local-first focus routine. No internet connection is required for any core feature.' },
         { q: 'Is my data backed up to the cloud?', a: 'No cloud sync is required. All your focus data, task history, and session records stay on your device by default. No account is needed.' },
-        { q: 'Does Gamu Neko work for ADHD focus routines?', a: 'Many users with ADHD find that short Pomodoro intervals, visual feedback, and a low-pressure mechanic like Gamu Neko help build focus habits. The app uses gentle emotional cues rather than alarms or penalties. Gamu Neko is not a medical device and is not intended to diagnose, treat, cure, or prevent ADHD or any other medical condition.' },
-        { q: 'How does Gamu Neko protect my privacy?', a: 'Gamu Neko requires no account, collects no personal data, shows no ads, and does not transmit any information to external servers. Everything stays on your device.' },
-        { q: 'Can I use Gamu Neko for studying?', a: 'Yes. Gamu Neko works well as a study timer for homework, exam prep, reading, and longer deep work sessions.' },
+        { q: 'Does Gamu Nemu work for ADHD focus routines?', a: 'Many users with ADHD find that short Pomodoro intervals, visual feedback, and a low-pressure mechanic like Gamu Nemu help build focus habits. The app uses gentle emotional cues rather than alarms or penalties. Gamu Nemu is not a medical device and is not intended to diagnose, treat, cure, or prevent ADHD or any other medical condition.' },
+        { q: 'How does Gamu Nemu protect my privacy?', a: 'Gamu Nemu requires no account, collects no personal data, shows no ads, and does not transmit any information to external servers. Everything stays on your device.' },
+        { q: 'Can I use Gamu Nemu for studying?', a: 'Yes. Gamu Nemu works well as a study timer for homework, exam prep, reading, and longer deep work sessions.' },
         { q: 'Does the cat react when I stop focusing?', a: 'In the mobile app, leaving the timer activates the wake mechanic: the cat stirs, giving you a visual cue that your focus session was interrupted. The web preview shows a simplified version.' },
-        { q: 'What platforms does Gamu Neko support?', a: 'Gamu Neko is available on iOS (12.0 or later) and Android (8.0 or later).' },
+        { q: 'What platforms does Gamu Nemu support?', a: 'Gamu Nemu is available on iOS (12.0 or later) and Android (8.0 or later).' },
       ],
     },
   },
 
   ja: {
     meta: {
-      title: 'Gamu Neko: かわいい猫のポモドーロタイマー',
+      title: 'Gamu Nemu: かわいい猫のポモドーロタイマー',
       description:
-        'Gamu Neko は無料のオフラインファースト猫ポモドーロ集中タイマー。広告なし、アカウント不要。勉強中に猫が眠ります。iOS・Android対応。',
+        'Gamu Nemu は無料のオフラインファースト猫ポモドーロ集中タイマー。広告なし、アカウント不要。勉強中に猫が眠ります。iOS・Android対応。',
     },
     snackable:
-      'Gamu Neko は、眠る猫があなたの集中に反応する無料のオフラインファーストポモドーロタイマーです。広告なし、アカウント不要。iOS と Android で利用可能。',
+      'Gamu Nemu は、眠る猫があなたの集中に反応する無料のオフラインファーストポモドーロタイマーです。広告なし、アカウント不要。iOS と Android で利用可能。',
     header: { cta: 'アプリを入手' },
     hero: {
       kicker: 'iOS・Android 無料',
@@ -188,13 +188,13 @@ export const copy: Record<Locale, LocaleCopy> = {
         },
         {
           label: 'アプリを離れると',
-          desc: 'Gamu Neko が目を覚まします。やさしく、罪悪感なく戻ってこられます。',
+          desc: 'Gamu Nemu が目を覚まします。やさしく、罪悪感なく戻ってこられます。',
         },
       ],
     },
     intro: {
       kicker: 'もっとやさしいポモドーロタイマー',
-      title: 'ほとんどの生産性タイマーはツールのよう。Gamu Neko は小さな相棒のよう。',
+      title: 'ほとんどの生産性タイマーはツールのよう。Gamu Nemu は小さな相棒のよう。',
       body: '集中セッションにシンプルな感情のループを。始めて、今に集中して、眠っている猫を守り、何をしたかの記録とともに終える。',
     },
     features: {
@@ -208,7 +208,7 @@ export const copy: Record<Locale, LocaleCopy> = {
         ['集中オーラと進捗', 'やさしい進捗フィードバック、連続記録、実績で一貫性を実感。'],
         ['かわいいアンロック', 'マンチカン、Shadow Neko、オレンジ猫、ヒマラヤン、ブリティッシュショートヘアなど猫パックと日本の季節をイメージした背景でカスタマイズ。'],
         ['オフラインファーストのプライバシー', 'コア体験にアカウント不要。集中データはデバイスに保存されます。'],
-        ['多言語対応', 'Gamu Neko を英語、日本語、ポルトガル語、スペイン語で使用可能。'],
+        ['多言語対応', 'Gamu Nemu を英語、日本語、ポルトガル語、スペイン語で使用可能。'],
       ],
     },
     useCases: {
@@ -219,12 +219,12 @@ export const copy: Record<Locale, LocaleCopy> = {
     privacy: {
       kicker: 'プライバシー重視の設計',
       title: 'ソーシャルフィードではなく、個人的な集中の相棒',
-      body: 'Gamu Neko はソーシャルフィードやチーム生産性プラットフォームではなく、個人的な集中の相棒として設計されています。意図的に静かで、ローカルファースト、低プレッシャーな体験です。',
+      body: 'Gamu Nemu はソーシャルフィードやチーム生産性プラットフォームではなく、個人的な集中の相棒として設計されています。意図的に静かで、ローカルファースト、低プレッシャーな体験です。',
     },
     comparison: {
       kicker: '正直な比較',
-      title: 'Gamu Neko を選ぶ理由',
-      headers: ['機能', 'Gamu Neko', '一般的な広告付きタイマー', '一般的なサブスクリプションアプリ'],
+      title: 'Gamu Nemu を選ぶ理由',
+      headers: ['機能', 'Gamu Nemu', '一般的な広告付きタイマー', '一般的なサブスクリプションアプリ'],
       rows: [
         ['広告', '100%広告なし', '頻繁な動画・ポップアップ広告', '有料プランのみ広告なし'],
         ['プライバシー', 'アカウント不要、100%ローカル、追跡なし', 'サードパーティデータ収集', 'クラウドアカウント必須、利用状況追跡あり'],
@@ -236,40 +236,40 @@ export const copy: Record<Locale, LocaleCopy> = {
     previewNote: {
       kicker: 'このプレビューについて',
       title: 'モバイルアプリの軽量デモ',
-      body: 'このページは Gamu Neko の軽量インタラクティブプレビューです。完全なモバイルアプリではありません。タイマーは通常速度で動作し、一部はデモ用に簡略化されています。',
+      body: 'このページは Gamu Nemu の軽量インタラクティブプレビューです。完全なモバイルアプリではありません。タイマーは通常速度で動作し、一部はデモ用に簡略化されています。',
     },
     store: {
-      kicker: 'Gamu Neko を入手',
-      title: 'Gamu Neko で次の集中セッションを始めよう',
-      body: 'Gamu Neko を iOS または Android でダウンロード。勉強、執筆、コーディング、読書、日々のディープワークに優しい猫のポモドーロタイマーを。',
+      kicker: 'Gamu Nemu を入手',
+      title: 'Gamu Nemu で次の集中セッションを始めよう',
+      body: 'Gamu Nemu を iOS または Android でダウンロード。勉強、執筆、コーディング、読書、日々のディープワークに優しい猫のポモドーロタイマーを。',
     },
-    footer: 'Gamu Neko は Gamu Blocks が開発しています。このサイトは Cookie や解析ツールを使用していません。',
+    footer: 'Gamu Nemu は Gamu Blocks が開発しています。このサイトは Cookie や解析ツールを使用していません。',
     faq: {
       kicker: 'よくある質問',
-      title: 'Gamu Neko についての質問',
+      title: 'Gamu Nemu についての質問',
       items: [
-        { q: 'Gamu Neko とは？', a: 'Gamu Neko はポモドーロタイマーと眠る猫のメカニクスを組み合わせた心地よい集中の相棒です。集中中は猫が眠り、離れると目を覚まします。' },
-        { q: 'ポモドーロテクニックとは？', a: 'ポモドーロテクニックは、通常25分の集中インターバルと短い休憩を繰り返す時間管理法です。Gamu Neko は15・25・45分のセッションをサポートしています。' },
-        { q: 'Gamu Neko は無料ですか？', a: 'はい。コア体験は完全無料です。オプションの一回限り購入で追加の猫の種類と季節の背景がアンロックされます。' },
-        { q: 'Gamu Neko はオフラインで動作しますか？', a: 'はい。モバイルアプリはオフラインファースト・ローカルファーストで設計されており、コア機能にインターネット接続は不要です。' },
+        { q: 'Gamu Nemu とは？', a: 'Gamu Nemu はポモドーロタイマーと眠る猫のメカニクスを組み合わせた心地よい集中の相棒です。集中中は猫が眠り、離れると目を覚まします。' },
+        { q: 'ポモドーロテクニックとは？', a: 'ポモドーロテクニックは、通常25分の集中インターバルと短い休憩を繰り返す時間管理法です。Gamu Nemu は15・25・45分のセッションをサポートしています。' },
+        { q: 'Gamu Nemu は無料ですか？', a: 'はい。コア体験は完全無料です。オプションの一回限り購入で追加の猫の種類と季節の背景がアンロックされます。' },
+        { q: 'Gamu Nemu はオフラインで動作しますか？', a: 'はい。モバイルアプリはオフラインファースト・ローカルファーストで設計されており、コア機能にインターネット接続は不要です。' },
         { q: 'データはクラウドにバックアップされますか？', a: 'クラウド同期は不要です。すべての集中データ、タスク履歴、セッション記録はデフォルトでデバイスに保存されます。アカウントは必要ありません。' },
-        { q: 'Gamu Neko はADHDの集中ルーティンに使えますか？', a: '短いポモドーロインターバル、視覚的フィードバック、Gamu Neko のような低プレッシャーなメカニクスが集中習慣の構築に役立つと感じるADHDのユーザーが多くいます。アラームや罰ではなく、やさしい感情的な合図を使います。Gamu Neko は医療機器ではなく、ADHD やその他の医学的状態の診断、治療、緩和、予防を目的としたものではありません。' },
-        { q: 'Gamu Neko のプライバシー保護は？', a: 'Gamu Neko はアカウント不要、個人データ収集なし、広告なし、外部サーバーへの情報送信なし。すべてデバイスに保存されます。' },
-        { q: 'Gamu Neko は勉強に使えますか？', a: 'はい。宿題、試験準備、読書、長時間のディープワークの学習タイマーとして最適です。' },
+        { q: 'Gamu Nemu はADHDの集中ルーティンに使えますか？', a: '短いポモドーロインターバル、視覚的フィードバック、Gamu Nemu のような低プレッシャーなメカニクスが集中習慣の構築に役立つと感じるADHDのユーザーが多くいます。アラームや罰ではなく、やさしい感情的な合図を使います。Gamu Nemu は医療機器ではなく、ADHD やその他の医学的状態の診断、治療、緩和、予防を目的としたものではありません。' },
+        { q: 'Gamu Nemu のプライバシー保護は？', a: 'Gamu Nemu はアカウント不要、個人データ収集なし、広告なし、外部サーバーへの情報送信なし。すべてデバイスに保存されます。' },
+        { q: 'Gamu Nemu は勉強に使えますか？', a: 'はい。宿題、試験準備、読書、長時間のディープワークの学習タイマーとして最適です。' },
         { q: '集中をやめると猫は反応しますか？', a: 'モバイルアプリでは、タイマーを離れると起床メカニクスが発動し、集中セッションが中断されたことを視覚的に知らせます。ウェブプレビューは簡略版です。' },
-        { q: '対応プラットフォームは？', a: 'Gamu Neko はiOS（12.0以降）とAndroid（8.0以降）に対応しています。' },
+        { q: '対応プラットフォームは？', a: 'Gamu Nemu はiOS（12.0以降）とAndroid（8.0以降）に対応しています。' },
       ],
     },
   },
 
   pt: {
     meta: {
-      title: 'Gamu Neko: Timer Pomodoro com Gato',
+      title: 'Gamu Nemu: Timer Pomodoro com Gato',
       description:
-        'Gamu Neko é um timer Pomodoro offline-first gratuito com gato. Sem anúncios, sem conta. Seu gato dorme quando você estuda. iOS e Android.',
+        'Gamu Nemu é um timer Pomodoro offline-first gratuito com gato. Sem anúncios, sem conta. Seu gato dorme quando você estuda. iOS e Android.',
     },
     snackable:
-      'Gamu Neko é um timer Pomodoro offline-first gratuito onde um gato dormindo reage às suas sessões de foco. Sem anúncios, sem conta. Disponível no iOS e Android.',
+      'Gamu Nemu é um timer Pomodoro offline-first gratuito onde um gato dormindo reage às suas sessões de foco. Sem anúncios, sem conta. Disponível no iOS e Android.',
     header: { cta: 'Baixar App' },
     hero: {
       kicker: 'Gratuito para iOS e Android',
@@ -290,13 +290,13 @@ export const copy: Record<Locale, LocaleCopy> = {
         },
         {
           label: 'Saia do app',
-          desc: 'Gamu Neko acorda: um lembrete gentil para você voltar.',
+          desc: 'Gamu Nemu acorda: um lembrete gentil para você voltar.',
         },
       ],
     },
     intro: {
       kicker: 'Um timer Pomodoro mais gentil',
-      title: 'A maioria dos timers de produtividade parecem ferramentas. Gamu Neko parece um pequeno companheiro.',
+      title: 'A maioria dos timers de produtividade parecem ferramentas. Gamu Nemu parece um pequeno companheiro.',
       body: 'Ele dá à sua sessão de foco um ciclo emocional simples: comece, fique presente, proteja o gato dormindo, e termine com um registro mais claro do que você trabalhou.',
     },
     features: {
@@ -310,7 +310,7 @@ export const copy: Record<Locale, LocaleCopy> = {
         ['Aura de foco e progresso', 'Veja a consistência crescer com feedback gentil, sequências e conquistas.'],
         ['Desbloqueios fofos', 'Personalize com raças de gatos (Munchkin, Shadow Neko, Gato Laranja, Himalayan, British Shorthair) e fundos sazonais inspirados nas estações japonesas.'],
         ['Privacidade offline-first', 'Nenhuma conta é necessária. Seus dados de foco ficam no seu dispositivo.'],
-        ['Experiência localizada', 'Use Gamu Neko em inglês, japonês, português ou espanhol.'],
+        ['Experiência localizada', 'Use Gamu Nemu em inglês, japonês, português ou espanhol.'],
       ],
     },
     useCases: {
@@ -321,12 +321,12 @@ export const copy: Record<Locale, LocaleCopy> = {
     privacy: {
       kicker: 'Privacidade por design',
       title: 'Um companheiro pessoal de foco, não um feed social',
-      body: 'Gamu Neko é projetado como um companheiro pessoal de foco, não um feed social ou plataforma de produtividade em equipe. A experiência é intencionalmente tranquila, local-first e de baixa pressão.',
+      body: 'Gamu Nemu é projetado como um companheiro pessoal de foco, não um feed social ou plataforma de produtividade em equipe. A experiência é intencionalmente tranquila, local-first e de baixa pressão.',
     },
     comparison: {
       kicker: 'Comparação honesta',
-      title: 'Por que escolher Gamu Neko',
-      headers: ['Recurso', 'Gamu Neko', 'Timers Típicos com Anúncios', 'Apps de Assinatura Padrão'],
+      title: 'Por que escolher Gamu Nemu',
+      headers: ['Recurso', 'Gamu Nemu', 'Timers Típicos com Anúncios', 'Apps de Assinatura Padrão'],
       rows: [
         ['Anúncios', '100% sem anúncios', 'Anúncios frequentes em vídeo e pop-up', 'Sem anúncios apenas no plano pago'],
         ['Privacidade', 'Sem conta, 100% local, sem rastreamento', 'Coleta de dados de terceiros', 'Conta na nuvem obrigatória e rastreamento de uso'],
@@ -338,40 +338,40 @@ export const copy: Record<Locale, LocaleCopy> = {
     previewNote: {
       kicker: 'Sobre este preview',
       title: 'Um demo leve do app móvel',
-      body: 'Esta página é um preview interativo leve do Gamu Neko. Não é o app móvel completo. O timer roda em velocidade normal, enquanto telas, desbloqueios e algumas interações são simplificados para demonstração.',
+      body: 'Esta página é um preview interativo leve do Gamu Nemu. Não é o app móvel completo. O timer roda em velocidade normal, enquanto telas, desbloqueios e algumas interações são simplificados para demonstração.',
     },
     store: {
-      kicker: 'Baixe Gamu Neko',
-      title: 'Comece sua próxima sessão de foco com Gamu Neko',
-      body: 'Baixe Gamu Neko para iOS ou Android e use um timer Pomodoro gentil com gato para estudar, escrever, programar, ler e trabalho focado.',
+      kicker: 'Baixe Gamu Nemu',
+      title: 'Comece sua próxima sessão de foco com Gamu Nemu',
+      body: 'Baixe Gamu Nemu para iOS ou Android e use um timer Pomodoro gentil com gato para estudar, escrever, programar, ler e trabalho focado.',
     },
-    footer: 'Gamu Neko é desenvolvido por Gamu Blocks. Este site não usa cookies nem análises.',
+    footer: 'Gamu Nemu é desenvolvido por Gamu Blocks. Este site não usa cookies nem análises.',
     faq: {
       kicker: 'Perguntas frequentes',
-      title: 'Perguntas sobre Gamu Neko',
+      title: 'Perguntas sobre Gamu Nemu',
       items: [
-        { q: 'O que é Gamu Neko?', a: 'Gamu Neko é um companheiro de foco aconchegante que combina um timer Pomodoro com a mecânica de um gato dormindo. O gato descansa enquanto você foca e acorda se você sair.' },
-        { q: 'O que é a Técnica Pomodoro?', a: 'A Técnica Pomodoro é um método de gerenciamento de tempo onde você trabalha em intervalos focados, geralmente 25 minutos, seguidos de uma pausa curta. Gamu Neko suporta sessões de 15, 25 e 45 minutos.' },
-        { q: 'Gamu Neko é gratuito?', a: 'Sim. A experiência principal é completamente gratuita. Compras únicas opcionais desbloqueiam raças adicionais de gatos e fundos sazonais.' },
-        { q: 'Gamu Neko funciona offline?', a: 'Sim. O app móvel é projetado com foco offline-first e local-first. Nenhuma conexão com internet é necessária para qualquer recurso principal.' },
+        { q: 'O que é Gamu Nemu?', a: 'Gamu Nemu é um companheiro de foco aconchegante que combina um timer Pomodoro com a mecânica de um gato dormindo. O gato descansa enquanto você foca e acorda se você sair.' },
+        { q: 'O que é a Técnica Pomodoro?', a: 'A Técnica Pomodoro é um método de gerenciamento de tempo onde você trabalha em intervalos focados, geralmente 25 minutos, seguidos de uma pausa curta. Gamu Nemu suporta sessões de 15, 25 e 45 minutos.' },
+        { q: 'Gamu Nemu é gratuito?', a: 'Sim. A experiência principal é completamente gratuita. Compras únicas opcionais desbloqueiam raças adicionais de gatos e fundos sazonais.' },
+        { q: 'Gamu Nemu funciona offline?', a: 'Sim. O app móvel é projetado com foco offline-first e local-first. Nenhuma conexão com internet é necessária para qualquer recurso principal.' },
         { q: 'Meus dados são salvos na nuvem?', a: 'Não é necessária sincronização na nuvem. Todos os seus dados de foco, histórico de tarefas e registros de sessões ficam no seu dispositivo por padrão. Nenhuma conta é necessária.' },
-        { q: 'Gamu Neko funciona para rotinas de foco com TDAH?', a: 'Muitos usuários com TDAH descobrem que intervalos curtos de Pomodoro, feedback visual e uma mecânica de baixa pressão como Gamu Neko ajudam a criar hábitos de foco. O app usa sinais emocionais gentis, não alarmes ou penalidades. Gamu Neko não é um dispositivo médico e não se destina a diagnosticar, tratar, curar ou prevenir o TDAH ou qualquer outra condição médica.' },
-        { q: 'Como Gamu Neko protege minha privacidade?', a: 'Gamu Neko não requer conta, não coleta dados pessoais, não exibe anúncios e não transmite informações para servidores externos. Tudo fica no seu dispositivo.' },
-        { q: 'Posso usar Gamu Neko para estudar?', a: 'Sim. Gamu Neko funciona bem como timer de estudo para tarefas, preparação de provas, leitura e sessões longas de trabalho focado.' },
+        { q: 'Gamu Nemu funciona para rotinas de foco com TDAH?', a: 'Muitos usuários com TDAH descobrem que intervalos curtos de Pomodoro, feedback visual e uma mecânica de baixa pressão como Gamu Nemu ajudam a criar hábitos de foco. O app usa sinais emocionais gentis, não alarmes ou penalidades. Gamu Nemu não é um dispositivo médico e não se destina a diagnosticar, tratar, curar ou prevenir o TDAH ou qualquer outra condição médica.' },
+        { q: 'Como Gamu Nemu protege minha privacidade?', a: 'Gamu Nemu não requer conta, não coleta dados pessoais, não exibe anúncios e não transmite informações para servidores externos. Tudo fica no seu dispositivo.' },
+        { q: 'Posso usar Gamu Nemu para estudar?', a: 'Sim. Gamu Nemu funciona bem como timer de estudo para tarefas, preparação de provas, leitura e sessões longas de trabalho focado.' },
         { q: 'O gato reage quando paro de me focar?', a: 'No app móvel, sair do timer ativa a mecânica de despertar: o gato mexe, dando uma pista visual de que sua sessão foi interrompida. O preview web mostra uma versão simplificada.' },
-        { q: 'Quais plataformas o Gamu Neko suporta?', a: 'Gamu Neko está disponível no iOS (12.0 ou posterior) e Android (8.0 ou posterior).' },
+        { q: 'Quais plataformas o Gamu Nemu suporta?', a: 'Gamu Nemu está disponível no iOS (12.0 ou posterior) e Android (8.0 ou posterior).' },
       ],
     },
   },
 
   es: {
     meta: {
-      title: 'Gamu Neko: Temporizador Pomodoro con Gato',
+      title: 'Gamu Nemu: Temporizador Pomodoro con Gato',
       description:
-        'Gamu Neko es un temporizador Pomodoro offline-first gratuito con gato. Sin anuncios, sin cuenta. Tu gato duerme cuando estudias. iOS y Android.',
+        'Gamu Nemu es un temporizador Pomodoro offline-first gratuito con gato. Sin anuncios, sin cuenta. Tu gato duerme cuando estudias. iOS y Android.',
     },
     snackable:
-      'Gamu Neko es un temporizador Pomodoro offline-first gratuito donde un gato durmiendo reacciona a tus sesiones de enfoque. Sin anuncios, sin cuenta. Disponible en iOS y Android.',
+      'Gamu Nemu es un temporizador Pomodoro offline-first gratuito donde un gato durmiendo reacciona a tus sesiones de enfoque. Sin anuncios, sin cuenta. Disponible en iOS y Android.',
     header: { cta: 'Obtener App' },
     hero: {
       kicker: 'Gratis para iOS y Android',
@@ -392,13 +392,13 @@ export const copy: Record<Locale, LocaleCopy> = {
         },
         {
           label: 'Sales de la app',
-          desc: 'Gamu Neko se despierta: un recordatorio gentil para que vuelvas.',
+          desc: 'Gamu Nemu se despierta: un recordatorio gentil para que vuelvas.',
         },
       ],
     },
     intro: {
       kicker: 'Un temporizador Pomodoro más suave',
-      title: 'La mayoría de los temporizadores de productividad se sienten como herramientas. Gamu Neko se siente como un pequeño compañero.',
+      title: 'La mayoría de los temporizadores de productividad se sienten como herramientas. Gamu Nemu se siente como un pequeño compañero.',
       body: 'Le da a tu sesión de enfoque un ciclo emocional simple: comienza, permanece presente, protege al gato durmiendo, y termina con un registro más claro de lo que trabajaste.',
     },
     features: {
@@ -412,7 +412,7 @@ export const copy: Record<Locale, LocaleCopy> = {
         ['Aura de enfoque y progreso', 'Observa la consistencia crecer con retroalimentación suave, rachas y logros.'],
         ['Desbloqueos lindos', 'Personaliza con razas de gatos (Munchkin, Shadow Neko, Gato Naranja, Himalayan, British Shorthair) y fondos estacionales inspirados en las estaciones japonesas.'],
         ['Privacidad offline-first', 'No se requiere cuenta. Tus datos de enfoque permanecen en tu dispositivo.'],
-        ['Experiencia localizada', 'Usa Gamu Neko en inglés, japonés, portugués o español.'],
+        ['Experiencia localizada', 'Usa Gamu Nemu en inglés, japonés, portugués o español.'],
       ],
     },
     useCases: {
@@ -423,12 +423,12 @@ export const copy: Record<Locale, LocaleCopy> = {
     privacy: {
       kicker: 'Privacidad por diseño',
       title: 'Un compañero personal de enfoque, no un feed social',
-      body: 'Gamu Neko está diseñado como un compañero personal de enfoque, no un feed social o plataforma de productividad de equipo. La experiencia es intencionalmente tranquila, local-first y de baja presión.',
+      body: 'Gamu Nemu está diseñado como un compañero personal de enfoque, no un feed social o plataforma de productividad de equipo. La experiencia es intencionalmente tranquila, local-first y de baja presión.',
     },
     comparison: {
       kicker: 'Comparación honesta',
-      title: 'Por qué elegir Gamu Neko',
-      headers: ['Característica', 'Gamu Neko', 'Temporizadores Típicos con Anuncios', 'Apps de Suscripción Estándar'],
+      title: 'Por qué elegir Gamu Nemu',
+      headers: ['Característica', 'Gamu Nemu', 'Temporizadores Típicos con Anuncios', 'Apps de Suscripción Estándar'],
       rows: [
         ['Anuncios', '100% sin anuncios', 'Anuncios frecuentes en video y pop-up', 'Sin anuncios solo en el plan de pago'],
         ['Privacidad', 'Sin cuenta, 100% local, sin rastreo', 'Recopilación de datos de terceros', 'Cuenta en la nube obligatoria y rastreo de uso'],
@@ -440,28 +440,28 @@ export const copy: Record<Locale, LocaleCopy> = {
     previewNote: {
       kicker: 'Sobre esta vista previa',
       title: 'Un demo ligero de la app móvil',
-      body: 'Esta página es una vista previa interactiva ligera de Gamu Neko. No es la app móvil completa. El temporizador funciona a velocidad normal, mientras que las pantallas, desbloqueos y algunas interacciones están simplificadas para demostración.',
+      body: 'Esta página es una vista previa interactiva ligera de Gamu Nemu. No es la app móvil completa. El temporizador funciona a velocidad normal, mientras que las pantallas, desbloqueos y algunas interacciones están simplificadas para demostración.',
     },
     store: {
-      kicker: 'Obtén Gamu Neko',
-      title: 'Comienza tu próxima sesión de enfoque con Gamu Neko',
-      body: 'Descarga Gamu Neko para iOS o Android y usa un temporizador Pomodoro suave con gato para estudiar, escribir, programar, leer y trabajo profundo.',
+      kicker: 'Obtén Gamu Nemu',
+      title: 'Comienza tu próxima sesión de enfoque con Gamu Nemu',
+      body: 'Descarga Gamu Nemu para iOS o Android y usa un temporizador Pomodoro suave con gato para estudiar, escribir, programar, leer y trabajo profundo.',
     },
-    footer: 'Gamu Neko está hecho por Gamu Blocks. Este sitio no usa cookies ni análisis.',
+    footer: 'Gamu Nemu está hecho por Gamu Blocks. Este sitio no usa cookies ni análisis.',
     faq: {
       kicker: 'Preguntas frecuentes',
-      title: 'Preguntas sobre Gamu Neko',
+      title: 'Preguntas sobre Gamu Nemu',
       items: [
-        { q: '¿Qué es Gamu Neko?', a: 'Gamu Neko es un compañero de enfoque acogedor que combina un temporizador Pomodoro con la mecánica de un gato durmiendo. El gato descansa mientras te enfocas y se despierta si te vas.' },
-        { q: '¿Qué es la Técnica Pomodoro?', a: 'La Técnica Pomodoro es un método de gestión del tiempo donde trabajas en intervalos enfocados, generalmente 25 minutos, seguidos de un descanso corto. Gamu Neko soporta sesiones de 15, 25 y 45 minutos.' },
-        { q: '¿Es Gamu Neko gratuito?', a: 'Sí. La experiencia principal es completamente gratuita. Las compras únicas opcionales desbloquean razas adicionales de gatos y fondos estacionales.' },
-        { q: '¿Gamu Neko funciona sin conexión?', a: 'Sí. La app móvil está diseñada con enfoque offline-first y local-first. No se requiere conexión a internet para ninguna función principal.' },
+        { q: '¿Qué es Gamu Nemu?', a: 'Gamu Nemu es un compañero de enfoque acogedor que combina un temporizador Pomodoro con la mecánica de un gato durmiendo. El gato descansa mientras te enfocas y se despierta si te vas.' },
+        { q: '¿Qué es la Técnica Pomodoro?', a: 'La Técnica Pomodoro es un método de gestión del tiempo donde trabajas en intervalos enfocados, generalmente 25 minutos, seguidos de un descanso corto. Gamu Nemu soporta sesiones de 15, 25 y 45 minutos.' },
+        { q: '¿Es Gamu Nemu gratuito?', a: 'Sí. La experiencia principal es completamente gratuita. Las compras únicas opcionales desbloquean razas adicionales de gatos y fondos estacionales.' },
+        { q: '¿Gamu Nemu funciona sin conexión?', a: 'Sí. La app móvil está diseñada con enfoque offline-first y local-first. No se requiere conexión a internet para ninguna función principal.' },
         { q: '¿Mis datos se guardan en la nube?', a: 'No se requiere sincronización en la nube. Todos tus datos de enfoque, historial de tareas y registros de sesiones permanecen en tu dispositivo por defecto. No se necesita ninguna cuenta.' },
-        { q: '¿Gamu Neko funciona para rutinas de enfoque con TDAH?', a: 'Muchos usuarios con TDAH encuentran que los intervalos cortos de Pomodoro, el feedback visual y una mecánica de baja presión como Gamu Neko ayudan a crear hábitos de enfoque. La app usa señales emocionales suaves, no alarmas ni penalizaciones. Gamu Neko no es un dispositivo médico y no está destinado a diagnosticar, tratar, curar ni prevenir el TDAH ni ninguna otra afección médica.' },
-        { q: '¿Cómo protege Gamu Neko mi privacidad?', a: 'Gamu Neko no requiere cuenta, no recopila datos personales, no muestra anuncios y no transmite información a servidores externos. Todo permanece en tu dispositivo.' },
-        { q: '¿Puedo usar Gamu Neko para estudiar?', a: 'Sí. Gamu Neko funciona bien como temporizador de estudio para tareas, preparación de exámenes, lectura y sesiones largas de trabajo profundo.' },
+        { q: '¿Gamu Nemu funciona para rutinas de enfoque con TDAH?', a: 'Muchos usuarios con TDAH encuentran que los intervalos cortos de Pomodoro, el feedback visual y una mecánica de baja presión como Gamu Nemu ayudan a crear hábitos de enfoque. La app usa señales emocionales suaves, no alarmas ni penalizaciones. Gamu Nemu no es un dispositivo médico y no está destinado a diagnosticar, tratar, curar ni prevenir el TDAH ni ninguna otra afección médica.' },
+        { q: '¿Cómo protege Gamu Nemu mi privacidad?', a: 'Gamu Nemu no requiere cuenta, no recopila datos personales, no muestra anuncios y no transmite información a servidores externos. Todo permanece en tu dispositivo.' },
+        { q: '¿Puedo usar Gamu Nemu para estudiar?', a: 'Sí. Gamu Nemu funciona bien como temporizador de estudio para tareas, preparación de exámenes, lectura y sesiones largas de trabajo profundo.' },
         { q: '¿El gato reacciona cuando dejo de enfocarme?', a: 'En la app móvil, salir del temporizador activa la mecánica de despertar: el gato se mueve, dando una pista visual de que tu sesión fue interrumpida. La vista previa web muestra una versión simplificada.' },
-        { q: '¿Qué plataformas soporta Gamu Neko?', a: 'Gamu Neko está disponible en iOS (12.0 o posterior) y Android (8.0 o posterior).' },
+        { q: '¿Qué plataformas soporta Gamu Nemu?', a: 'Gamu Nemu está disponible en iOS (12.0 o posterior) y Android (8.0 o posterior).' },
       ],
     },
   },

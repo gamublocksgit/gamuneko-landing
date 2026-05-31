@@ -21,8 +21,8 @@ const playStoreUrl = 'https://play.google.com/store/apps/details?id=com.gamubloc
 const softwareAppSchema = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
-  name: 'Gamu Neko: Pomodoro Timer',
-  alternateName: 'Gamu Neko',
+  name: 'Gamu Nemu: Pomodoro Timer',
+  alternateName: 'Gamu Nemu',
   applicationCategory: 'ProductivityApplication',
   applicationSubCategory: 'Focus Timer, Pomodoro Timer, Study Timer',
   operatingSystem: 'iOS 12.0 or later, Android 8.0 or later',
@@ -70,7 +70,7 @@ const jsonLd = faqSchema ? [softwareAppSchema, faqSchema] : [softwareAppSchema];
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{t.meta.title}</title>
     <meta name="description" content={t.meta.description} />
-    <meta name="keywords" content="Gamu Neko, Pomodoro timer, focus timer, cat Pomodoro timer, study timer, cozy focus app, cute cat timer, offline focus app, cute productivity app, ADHD focus timer" />
+    <meta name="keywords" content="Gamu Nemu, Pomodoro timer, focus timer, cat Pomodoro timer, study timer, cozy focus app, cute cat timer, offline focus app, cute productivity app, ADHD focus timer" />
     <link rel="canonical" href={canonical} />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#fff8ef" />
@@ -92,7 +92,7 @@ const jsonLd = faqSchema ? [softwareAppSchema, faqSchema] : [softwareAppSchema];
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={`${base}/assets/app_icon.webp`} />
-    <meta property="og:site_name" content="Gamu Neko" />
+    <meta property="og:site_name" content="Gamu Nemu" />
     <meta property="og:locale" content={lang === 'pt' ? 'pt_BR' : lang === 'ja' ? 'ja_JP' : lang === 'es' ? 'es_ES' : 'en_US'} />
 
     <!-- Twitter Card -->

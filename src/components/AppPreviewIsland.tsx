@@ -52,11 +52,11 @@ const islandCopy: Record<
   }
 > = {
   en: {
-    waiting: 'Gamu Neko is waiting...',
-    sleeping: 'Gamu Neko is sleeping...',
-    angry: 'Gamu Neko woke up...',
+    waiting: 'Gamu Nemu is waiting...',
+    sleeping: 'Gamu Nemu is sleeping...',
+    angry: 'Gamu Nemu woke up...',
     breakReady: 'Focus complete! Take a break?',
-    breakStatus: 'Break time with Gamu Neko...',
+    breakStatus: 'Break time with Gamu Nemu...',
     start: 'Start Focus',
     stop: 'Stop',
     retry: 'Try Again',
@@ -76,11 +76,11 @@ const islandCopy: Record<
     breakLength: 'Break length',
   },
   ja: {
-    waiting: 'Gamu Neko が待っています...',
-    sleeping: 'Gamu Neko が眠っています...',
-    angry: 'Gamu Neko が起きました...',
+    waiting: 'Gamu Nemu が待っています...',
+    sleeping: 'Gamu Nemu が眠っています...',
+    angry: 'Gamu Nemu が起きました...',
     breakReady: '集中完了！休憩しますか？',
-    breakStatus: 'Gamu Neko と休憩中...',
+    breakStatus: 'Gamu Nemu と休憩中...',
     start: '集中を始める',
     stop: '止める',
     retry: 'もう一度',
@@ -100,11 +100,11 @@ const islandCopy: Record<
     breakLength: '休憩時間',
   },
   pt: {
-    waiting: 'Gamu Neko está esperando...',
-    sleeping: 'Gamu Neko está dormindo...',
-    angry: 'Gamu Neko acordou...',
+    waiting: 'Gamu Nemu está esperando...',
+    sleeping: 'Gamu Nemu está dormindo...',
+    angry: 'Gamu Nemu acordou...',
     breakReady: 'Foco concluído! Fazer uma pausa?',
-    breakStatus: 'Pausa com Gamu Neko...',
+    breakStatus: 'Pausa com Gamu Nemu...',
     start: 'Iniciar foco',
     stop: 'Parar',
     retry: 'Tentar de novo',
@@ -124,11 +124,11 @@ const islandCopy: Record<
     breakLength: 'Duração da pausa',
   },
   es: {
-    waiting: 'Gamu Neko está esperando...',
-    sleeping: 'Gamu Neko está durmiendo...',
-    angry: 'Gamu Neko despertó...',
+    waiting: 'Gamu Nemu está esperando...',
+    sleeping: 'Gamu Nemu está durmiendo...',
+    angry: 'Gamu Nemu despertó...',
     breakReady: '¡Enfoque completo! ¿Tomar un descanso?',
-    breakStatus: 'Descanso con Gamu Neko...',
+    breakStatus: 'Descanso con Gamu Nemu...',
     start: 'Iniciar enfoque',
     stop: 'Detener',
     retry: 'Intentar de nuevo',
@@ -316,7 +316,7 @@ export function AppPreviewIsland({ defaultLocale = 'en' }: Props) {
       id="preview-demo"
       ref={previewRef}
     >
-      <div className="app-preview" aria-label="Interactive Gamu Neko app preview">
+      <div className="app-preview" aria-label="Interactive Gamu Nemu app preview">
         <img className="app-background" src="/assets/app_background.webp" alt="" />
 
         <div className="preview-toolbar" aria-label="Preview settings">

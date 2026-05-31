@@ -1,6 +1,6 @@
-# Gamu Neko Landing Page
+# Gamu Nemu Landing Page
 
-Static GitHub Pages landing page for Gamu Neko, a cozy cat Pomodoro focus timer by Gamu Blocks.
+Static GitHub Pages landing page for Gamu Nemu, a cozy cat Pomodoro focus timer by Gamu Blocks.
 
 ## Local development
 
