@@ -589,6 +589,7 @@
   }
 
   .privacy-band,
+  .mikenchi-story,
   .preview-note,
   .store-section {
     border: 1px solid var(--line);
@@ -598,8 +599,21 @@
   }
 
   .privacy-band p,
+  .mikenchi-story p,
   .preview-note p {
     max-width: 820px;
+  }
+
+  .mikenchi-story {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.4rem;
+  }
+
+  .mikenchi-story .button {
+    flex: 0 0 auto;
+    text-align: center;
   }
 
   .faq-list {
@@ -774,6 +788,15 @@
   .split-band,
   .store-section {
     grid-template-columns: 1fr;
+  }
+
+  .mikenchi-story {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .mikenchi-story .button {
+    max-width: 100%;
   }
 
   .feature-grid {

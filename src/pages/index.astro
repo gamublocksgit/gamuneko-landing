@@ -6,6 +6,7 @@ import FeatureGrid from '../components/FeatureGrid.astro';
 import Footer from '../components/Footer.astro';
 import GuiltMechanic from '../components/GuiltMechanic.astro';
 import Header from '../components/Header.astro';
+import MikenchiStoryCta from '../components/MikenchiStoryCta.astro';
 import StoreButtons from '../components/StoreButtons.astro';
 import Layout from '../layouts/Layout.astro';
 import { copy } from '../i18n/copy';
@@ -58,6 +59,8 @@ const t = copy[lang];
       <h2 id="privacy-title">{t.privacy.title}</h2>
       <p>{t.privacy.body}</p>
     </section>
+
+    <MikenchiStoryCta lang={lang} />
 
     <ComparisonTable lang={lang} />
 

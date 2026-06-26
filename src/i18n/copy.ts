@@ -45,6 +45,7 @@ export type LocaleCopy = {
     items: string[];
   };
   privacy: { kicker: string; title: string; body: string };
+  mikenchiStory: { kicker: string; title: string; body: string; cta: string };
   comparison: {
     kicker: string;
     title: string;
@@ -118,6 +119,12 @@ export const copy: Record<Locale, LocaleCopy> = {
       kicker: 'Private by design',
       title: 'A personal focus companion, not a social feed',
       body: 'Gamu Nemu is designed as a personal focus companion, not a social feed or team productivity platform. The experience is intentionally quiet, local-first, and low-pressure, so your focus routine stays personal.',
+    },
+    mikenchiStory: {
+      kicker: 'Character story',
+      title: 'Meet Mikenchi, one of the cats behind the cozy world of Gamu Nemu',
+      body: 'Mikenchi has a dedicated story page with a calmer, character-focused look at this Gamu Nemu cat.',
+      cta: 'Visit the Mikenchi story',
     },
     comparison: {
       kicker: 'Honest comparison',
@@ -221,6 +228,12 @@ export const copy: Record<Locale, LocaleCopy> = {
       title: 'ソーシャルフィードではなく、個人的な集中の相棒',
       body: 'Gamu Nemu はソーシャルフィードやチーム生産性プラットフォームではなく、個人的な集中の相棒として設計されています。意図的に静かで、ローカルファースト、低プレッシャーな体験です。',
     },
+    mikenchiStory: {
+      kicker: 'キャラクターストーリー',
+      title: 'Gamu Nemu の心地よい世界に登場する猫、Mikenchi',
+      body: 'Mikenchi には専用のストーリーページがあります。この Gamu Nemu の猫を、より穏やかなキャラクター視点で紹介しています。',
+      cta: 'Mikenchi の物語を見る',
+    },
     comparison: {
       kicker: '正直な比較',
       title: 'Gamu Nemu を選ぶ理由',
@@ -323,6 +336,12 @@ export const copy: Record<Locale, LocaleCopy> = {
       title: 'Um companheiro pessoal de foco, não um feed social',
       body: 'Gamu Nemu é projetado como um companheiro pessoal de foco, não um feed social ou plataforma de produtividade em equipe. A experiência é intencionalmente tranquila, local-first e de baixa pressão.',
     },
+    mikenchiStory: {
+      kicker: 'História do personagem',
+      title: 'Conheça Mikenchi, um dos gatos do mundo aconchegante de Gamu Nemu',
+      body: 'Mikenchi tem uma página própria com uma visão mais calma e focada no personagem deste gato de Gamu Nemu.',
+      cta: 'Ver a história de Mikenchi',
+    },
     comparison: {
       kicker: 'Comparação honesta',
       title: 'Por que escolher Gamu Nemu',
@@ -424,6 +443,12 @@ export const copy: Record<Locale, LocaleCopy> = {
       kicker: 'Privacidad por diseño',
       title: 'Un compañero personal de enfoque, no un feed social',
       body: 'Gamu Nemu está diseñado como un compañero personal de enfoque, no un feed social o plataforma de productividad de equipo. La experiencia es intencionalmente tranquila, local-first y de baja presión.',
+    },
+    mikenchiStory: {
+      kicker: 'Historia del personaje',
+      title: 'Conoce a Mikenchi, uno de los gatos del mundo acogedor de Gamu Nemu',
+      body: 'Mikenchi tiene una página dedicada con una mirada más tranquila y centrada en este gato de Gamu Nemu.',
+      cta: 'Ver la historia de Mikenchi',
     },
     comparison: {
       kicker: 'Comparación honesta',

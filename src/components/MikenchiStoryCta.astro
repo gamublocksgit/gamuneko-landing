@@ -1,0 +1,18 @@
+---
+import { copy, type Locale } from '../i18n/copy';
+
+type Props = { lang: Locale };
+
+const { lang } = Astro.props;
+const t = copy[lang].mikenchiStory;
+const mikenchiUrl = 'https://mikenchi.gamublocks.com/';
+---
+
+<section class="content-band mikenchi-story" aria-labelledby={`mikenchi-story-title-${lang}`}>
+  <div class="narrow-copy">
+    <p class="section-kicker">{t.kicker}</p>
+    <h2 id={`mikenchi-story-title-${lang}`}>{t.title}</h2>
+    <p>{t.body}</p>
+  </div>
+  <a class="button" href={mikenchiUrl}>{t.cta}</a>
+</section>
